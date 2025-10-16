@@ -12,9 +12,9 @@ University of Padua)
 
 ## Contents
 
-- `breviary.md` -- Basic usage of the above software
-- `verlet/` -- Write a program for calculating classical trajectories
+- `breviary.md` | Basic usage of the above software
+- `verlet/` | Write a program for calculating classical trajectories
   of molecular systems solving Newton's equation through the Verlet
 algorithm
-- `cda/` -- Write a program for performing charge-displacement (CD)
+- `cda/` | Write a program for performing charge-displacement (CD)
   analysis of electron charge redistribution
