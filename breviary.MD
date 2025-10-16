@@ -74,3 +74,9 @@ multiple occurrences)
 ### INSERT MODE
 
 Use keyboard to type text. Use `ESC` to go back to command mode.
+
+## Basic git commands
+
+## Basic gfortran usage
+
+## Basic gnuplot usage
