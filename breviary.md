@@ -95,8 +95,9 @@ See the [Git Cheat sheet](https://git-scm.com/cheat-sheet) for further info.
 
 1. Create a [GitHub account](https://github.com/signup).
 2. Install the `gh` command line utility.
-   * On Windows, in the Git bash terminal, use `winget install --id github.cli`.
-     You will need admin rights. If you do not have them you can use
+   * On Windows, in the Git bash terminal, use [WinGet](https://learn.microsoft.com/en-us/windows/package-manager/winget/):
+     `winget install --id github.cli`.
+     As the time of writing you will need admin rights. If you do not have them you can use
      [SSH login instead](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github#ssh)
      for the next step.
 3. Restart your terminal.
