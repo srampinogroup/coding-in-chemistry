@@ -1,10 +1,7 @@
 ### Conventions
 
-`<...>`is  used to indicate custom content. E.g., `<filename>` indicates
+`<...>` is the used to indicate custom content. E.g., `<filename>` indicates
 a custom filename such as `myfile.txt`, or `myprogram.f90`, etc.
-
-In `$ ...`, the `$` symbol is the prompt symbol (you don't have to
-include it when typing the commands).
 
 # bash
 
@@ -19,67 +16,78 @@ include it when typing the commands).
 
 ## Basic commands
 
-### Navitate the file system
+### Navigation in the file system
 
-`$ pwd` print current directory
-
-`$ ls` list files in current directory
-
-`$ mkdir <dir>` create directory with custom name `<dir>`
-
-E.g., `$ mkdir test` creates a directory named `test`
-
-`$ cd <dir>` change current directory to `<dir>`
-
-E.g.:
-`$ cd test` (go to directory `test`)
-`$ cd ../` (go to parent directory)
-`$ cd ~` (go to home directory)
-
-`$ rmdir <dir>` remove directory (`<dir>` must be empty; see command
-`rm` below)
-
-E.g.: `$ rmdir test` removes (empty) directory `test`
+<!-- these &nbsp;s are for a larger column -->
+| Command &nbsp; &nbsp; &nbsp; &nbsp; | Description | Examples
+-----------------|-------------|---------
+`pwd` | print current directory (where you are) |
+`ls` | list files in current directory | same as `ls .`
+`ls <dir>` | list files in directory `<dir>` | does not change the current directory
+`cd <dir>` | change current directory to `<dir>` | `cd test` goes into `test`, `cd ..` goes to parent directory, `cd ~` goes to home
+`mkdir <dir>` | create empty directory with custom name `<dir>` | `mkdir test` creates the directory `test` in the current (`.`) directory
+`rmdir <dir>` | remove directory | `<dir>` must be empty, see below for removing files
 
 ### Copying, renaming, deleting files
 
-`$ cp <file> <new file>` creates a duplicate (`<new file>`) of a file
-(`<file>`)
+Command | Description
+--------|-------------
+`cp <file> <new_file>` | create a duplicate file named `<new_file>` of a the file `<file>`
+`cp -r <dir> <new_dir>` | create a duplicate file named `<new_file>` of a the file `<file>`
+`mv <old_file> <new_file>` | move `<old_file>` to `<new_file>` (equivalent to renaming the file)
+`rm <file>` | removes file `<file>`, **this is definitive**
+`rm -r ./'<dir>'` | remove directory `<dir>` and all files contained in it, **this is definitive**
 
-`$ mv <file> <new file>` moves `<file>` to `<new file>` (equivalent
-to renaming the file)
+Avoid using special characters in the names of your files
+(so do not work in a complex directory structure especially on Windows where spaces are
+frequent in the folder names like `My Documents` or `C:\Programmi (x86)`).
+If you need to work with such files, each filename should be surrounded by quotes.
+In doubt, always put quotes around filenames, they will always work:
+```bash
+mkdir a b c # creates 3 directories a, b, and c
+mkdir 'a b c' # creates 1 directory named a b c
+cp -r 'a b c' abc correctly copies the folder a b c to abc
+```
 
-`$ rm <file>` removes file `<file>`
-`$ rm -rf <dir>` (removes directory `<dir>` and all files contained
-in it)
+# Vim
 
-# vi
+**[Vim cheat sheet](https://vim.rtorr.com/)**
 
-`$ vi <file>` or `$vim <file>` open file `<file>` with the vi text
-editor
+## Launching the editor
 
-When you launch vi you are in command mode. This means that the
+To launch the Vim text editor with a file loaded: `vi <file>` or `vim <file>` opens file `<file>`.
+
+## When inside Vim
+
+When you launch Vim you are in command mode. This means that the
 keyboard is meant to issue commands and not to type text.
+All filenames are relative to where you were (`pwd`) when you
+opend the editor.
 
 ## Command mode
 
-`:w` save file
-`:q` quit vi without saving
-`:wq` save file and quit vi
+The actual command-line is opened when pressing `:`, so we will put the colon in front of these commands.
 
-`G` go to the bottom line
-`1 G` (go to the first line)
-
-`/ <string>` (search for string: use `n` to scroll through
-multiple occurrences)
-
-`i` enter INSERT MODE
+Command | Description
+--------|-------------
+`:w` | save file
+`:q` | try to quit Vim without saving (will ask)
+`:qa!` | force quit Vim without saving (unsaved changes are lost)
+`:wq` or `ZZ` | save file and quit Vim
+`hjkl` | respectively move left, down, up, right
+`G` | go to the end of the file
+`1G` or `gg` | go to the first line of the file
+`56G` or `56gg` | go to the 56th line of the file
+`/<string>` | search for string, use `n` to scroll through multiple occurrences
+`yy` | copy (yank) current line
+`p` | paste after current line
+`i` | enter INSERT MODE
 
 ## Insert mode
 
-Use keyboard to type text. Use `ESC` to go back to command mode.
+Use keyboard to type text. Use `ESC` to go back to COMMAND MODE above.
 
-# git
+# Git
 
 See https://git-scm.com/cheat-sheet for further info.
 
