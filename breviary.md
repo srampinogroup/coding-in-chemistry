@@ -1,12 +1,14 @@
-# Breviary
+### Conventions
 
-`<...>` used to indicate custom content.
+`<...>`is  used to indicate custom content. E.g., `<filename>` indicates
+a custom filename such as `myfile.txt`, or `myprogram.f90`, etc.
 
-`$ ...` the `$` symbol indicates that you are in the prompt line
+In `$ ...`, the `$` symbol is the prompt symbol (you don't have to
+include it when typing the commands).
 
-## Basic bash commands
+# bash
 
-Shortcuts in paths:
+### Shortcuts in paths
 
 `~` is your home directory (on Linux systems typically
 `/home/<username>`)
@@ -15,7 +17,9 @@ Shortcuts in paths:
 
 `..` is parent directory
 
-Basic commands:
+## Basic commands
+
+### Navitate the file system
 
 `$ pwd` print current directory
 
@@ -37,6 +41,8 @@ E.g.:
 
 E.g.: `$ rmdir test` removes (empty) directory `test`
 
+### Copying, renaming, deleting files
+
 `$ cp <file> <new file>` creates a duplicate (`<new file>`) of a file
 (`<file>`)
 
@@ -47,9 +53,7 @@ to renaming the file)
 `$ rm -rf <dir>` (removes directory `<dir>` and all files contained
 in it)
 
-## Basic vi commands
-
-How to edit text files with vi.
+# vi
 
 `$ vi <file>` or `$vim <file>` open file `<file>` with the vi text
 editor
@@ -57,7 +61,7 @@ editor
 When you launch vi you are in command mode. This means that the
 keyboard is meant to issue commands and not to type text.
 
-### COMMAND MODE
+## Command mode
 
 `:w` save file
 `:q` quit vi without saving
@@ -71,12 +75,16 @@ multiple occurrences)
 
 `i` enter INSERT MODE
 
-### INSERT MODE
+## Insert mode
 
 Use keyboard to type text. Use `ESC` to go back to command mode.
 
-## Basic git commands
+# git
 
-## Basic gfortran usage
+See https://git-scm.com/cheat-sheet
 
-## Basic gnuplot usage
+`git clone <repo url>`
+
+# gfortran
+
+# gnuplot
