@@ -5,10 +5,14 @@ University of Padua)
 ## Setup:
 
 - bash (or bash-like) shell
-- vim text editor
-- git
-- gfortran compiler
-- gnuplot
+- Git
+  - For windows you can use
+    [Git for Windows](https://git-scm.com/downloads/win)
+    that comes with both Git and bash.
+- Vim text editor ([gVim](https://www.vim.org/download.php) for Windows)
+- [gfortran](https://fortran-lang.org/learn/os_setup/install_gfortran/)
+  compiler
+- [gnuplot](http://gnuplot.info/download.html)
 
 ## Contents
 
