@@ -89,42 +89,79 @@ Use keyboard to type text. Use `ESC` to go back to COMMAND MODE above.
 
 # Git
 
-See https://git-scm.com/cheat-sheet for further info.
+See the [Git Cheat sheet](https://git-scm.com/cheat-sheet) for further info.
 
-Suggested protocol: create a [GitHub](https://github.com/) account.
-Create a new private repository with README through your GitHub
-personal page. Clone your repository in your PC.
+### Suggested protocol for working on GitHub:
 
-`$ git clone <url>` clone an existing repo. Get `<url>` from the GitHub
-page of the repository that you just created.
+1. Create a [GitHub account](https://github.com/signup).
+2. Install the `gh` command line utility.
+   * On Windows, in the Git bash terminal, use `winget install --id github.cli`.
+     You will need admin rights. If you do not have them you can use
+     [SSH login instead](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github#ssh)
+     for the next step.
+3. Restart your terminal.
+3. Link your local Git account to GitHub:
+   ```bash
+   gh auth login --git-protocol https --web --clipboard
+   ```
+   and press `Enter` twice. A GitHub page will open where you can paste the code already in your clipboard.
+   You should now be able to publish the files from your local machine to GitHub.
+5. Create a new public repository (repo) with README from within the GitHub website
+   with the ["New"](https://github.com/new) button with a name of your choice.
+6. On your machine, create an empty folder in a path without special characters for your future works
+(e.g `C:\repositories` or `/c/repositories` in Git bash).
+7. Clone your repository on your PC inside the newly created folder:
+```bash
+cd <repositories_folder>
+gh repo clone <your_user_name>/<your_repo_name>
+```
+or if you do not have the `gh` utility:
+```bash
+git clone https://github.com/<your_user_name>/<your_repo_name>
+```
+You can copy the home page URL of the repository from your browser.
 
-Now you have the folder (and content) of your repository in your PC,
+Now you should have the folder (and content) of your repo in your PC,
 and you can start creating and editing the files of your project.
 
-`$ git add <file>` start tracking file `<file>`
+Any time you create or edit a file, you should tell git to track it with the
+command `git add <file>`. If you want to rename a file, inside a git
+repo use `git mv`, and to remove use `git rm`.
 
-(if you move or delete a traked file `git mv` and `git rm` shloud be
-used instead of `mv` and `rm`, respectively).
+Once the modifications of a file done (or at any time), you can save your
+progress locally with a commit:
+```bash
+git commit -m "<message>"
+```
+where `message` should be a short text describing the essence of the changes
+that you have made and why.
 
-When you want to save the changes that you have made to your files,
-you do a so called 'commit':
+A faster way of dealing with multiple files is to use
+```bash
+git commit -am "<message>"
+```
+notice the `a` before the `m`, it tells Git to `git add` all the files that
+have been created or edited to the commit.
 
-`$ git commit -a -m "<message>"` with `message` being a short text
-describing the essence of the changes that you have made
+To synchronize your local modifications to the online GitHub repository
+(on the GitHub server), you do a 'push':
+```bash
+git push
+```
+from within the directory of your local repo.
 
-To synchronize the online GitHub repository (on the GitHub server)
-with your local repository (on your PC), you do a 'push':
+If the online (GitHub) repo contains updates that you do not yet have in
+your local repo because, for example, you pushed the changes from
+another device, in order to synchronize your local repo you do a 'pull':
+```bash
+git pull
+```
+from within the directory of your local repo. This will try to download
+and merge all the modifications from the server. Try not to modify your
+files from your different devices without saving your progress each time
+(i.e. pushing), because then Git will not know wich version you want to
+keep and you'll need to solve conflicts manually.
 
-`$ git push` (you have to issue this command from one of the locations
-within the repository)
-
-If the online repository contains updates that you do not yet have in
-your local repo (beacuse, for example, you pushed the changes from
-another device), in order to synchronize your local repo you do a
-'pull':
-
-`$ git pull` (you have to issue this command from one of the locations  
-within the repository)
 
 # gfortran
 
