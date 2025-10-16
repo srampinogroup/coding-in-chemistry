@@ -100,6 +100,12 @@ See the [Git Cheat sheet](https://git-scm.com/cheat-sheet) for further info.
      [SSH login instead](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github#ssh)
      for the next step.
 3. Restart your terminal.
+4. [Setup your Git identity](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)
+   with the following commands:
+   ```bash
+   git config --global user.name "<your_first_name> <your_last_name>"
+   git config --global user.email <your_email>
+   ```
 3. Link your local Git account to GitHub:
    ```bash
    gh auth login --git-protocol https --web --clipboard
@@ -140,7 +146,7 @@ A faster way of dealing with multiple files is to use
 ```bash
 git commit -am "<message>"
 ```
-notice the `a` before the `m`, it tells Git to `git add` all the files that
+Notice the `a` before the `m`, it tells Git to `git add` all the files that
 have been created or edited to the commit.
 
 To synchronize your local modifications to the online GitHub repository
