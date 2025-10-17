@@ -32,8 +32,8 @@ a custom filename such as `myfile.txt`, or `myprogram.f90`, etc.
 
 Command | Description
 --------|-------------
-`cp <file> <new_file>` | create a duplicate file named `<new_file>` of a the file `<file>`
-`cp -r <dir> <new_dir>` | create a duplicate file named `<new_file>` of a the file `<file>`
+`cp <file> <new_file>` | create a duplicate file named `<new_file>` of the file `<file>`
+`cp -r <dir> <new_dir>` | create a duplicate file named `<new_file>` of the file `<file>`
 `mv <old_file> <new_file>` | move `<old_file>` to `<new_file>` (equivalent to renaming the file)
 `rm <file>` | removes file `<file>`, **this is definitive**
 `rm -r ./'<dir>'` | remove directory `<dir>` and all files contained in it, **this is definitive**
@@ -62,7 +62,7 @@ To launch the Vim text editor with a file loaded: `vi <file>` or `vim <file>` op
 When you launch Vim you are in command mode. This means that the
 keyboard is meant to issue commands and not to type text.
 All filenames are relative to where you were (`pwd`) when you
-opend the editor.
+open the editor.
 
 ## Command mode
 
@@ -81,11 +81,13 @@ Command | Description
 `/<string>` | search for string, use `n` to scroll through multiple occurrences
 `yy` | copy (yank) current line
 `p` | paste after current line
-`i` | enter INSERT MODE
+`i` | enter **Insert mode** (before the cursor)
+`a` | enter **Insert mode** (after the cursor)
+`o` | enter **Insert mode** on a new line below the current line
 
 ## Insert mode
 
-Use keyboard to type text. Use `ESC` to go back to COMMAND MODE above.
+Use keyboard to type text. Use `ESC` to go back to **Command mode** above.
 
 # Git
 
