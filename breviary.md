@@ -193,7 +193,7 @@ and to execute
 ```bash
 ./helloworld.exe
 ```
-If you encounter a 'not an executable error', you might need to do once
+If you encounter a 'not an executable' error, you might need to do once
 ```bash
 chmod u+x ./helloworld.exe
 ```
