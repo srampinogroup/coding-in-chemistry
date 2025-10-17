@@ -178,6 +178,8 @@ keep and you'll need to solve conflicts manually.
 
 # Exercises
 
+## 1
+
 Create a file named `helloworld.f90` with the following content:
 ```
 PRINT *, "Hello world"                                                
@@ -193,3 +195,9 @@ Mac OS and Linux users:
 
 Windows users:
 `./a.exe` 
+
+## 2
+
+Create a folder `test` inside your repository and move
+`helloworld.f90` into that folder. Add the `helloworld.f90` to the
+tracked files, commit and push.
