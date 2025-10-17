@@ -181,20 +181,19 @@ keep and you'll need to solve conflicts manually.
 ## 1
 
 Create a file named `helloworld.f90` with the following content:
-```
+```fortran
 PRINT *, "Hello world"                                                
-END PROGRAM 
+END PROGRAM
 ```
-
-Now type:
-
-`gfortran helloworld.f90`
-
-Mac OS and Linux users:
-`./a.out`
-
-Windows users:
-`./a.exe` 
+Now to compile type:
+```bash
+gfortran -o helloworld.exe helloworld.f90
+```
+and to execute
+```bash
+chmod u+x ./helloworld.exe # only needed once for evevery new program
+./helloworld.exe
+```
 
 ## 2
 
