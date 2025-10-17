@@ -191,8 +191,11 @@ gfortran -o helloworld.exe helloworld.f90
 ```
 and to execute
 ```bash
-chmod u+x ./helloworld.exe # only needed once for evevery new program
 ./helloworld.exe
+```
+If you encounter a 'not an executable error', you might need to do once
+```bash
+chmod u+x ./helloworld.exe
 ```
 
 ## 2
