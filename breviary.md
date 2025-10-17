@@ -175,3 +175,21 @@ keep and you'll need to solve conflicts manually.
 # gfortran
 
 # gnuplot
+
+# Exercises
+
+Create a file named `helloworld.f90` with the following content:
+```
+PRINT *, "Hello world"                                                
+END PROGRAM 
+```
+
+Now type:
+
+`gfortran helloworld.f90`
+
+Mac OS and Linux users:
+`./a.out`
+
+Windows users:
+`./a.exe` 
