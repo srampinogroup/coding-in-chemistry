@@ -1,6 +1,8 @@
 # Coding in Chemistry
 Teaching material for the course Coding in Chemistry (Sergio Rampino,
-University of Padua)
+University of Padua).
+
+Authors: Sergio Rampino, Erwan Privat.
 
 ## Setup:
 
