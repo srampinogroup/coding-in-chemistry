@@ -59,7 +59,7 @@ To launch the Vim text editor with a file loaded: `vi <file>` or `vim <file>` op
 
 ## When inside Vim
 
-When you launch Vim you are in command mode. This means that the
+When you launch Vim you are in **Command mode**. This means that the
 keyboard is meant to issue commands and not to type text.
 All filenames are relative to where you were (`pwd`) when you
 open the editor.
@@ -137,8 +137,8 @@ Any time you create or edit a file, you should tell git to track it with the
 command `git add <file>`. If you want to rename a file, inside a git
 repo use `git mv`, and to remove use `git rm`.
 
-Once the modifications of a file done (or at any time), you can save your
-progress locally with a commit:
+Once the modifications of a file done, or actually at any time you
+wish to do so, you can save your progress locally with a commit:
 ```bash
 git commit -m "<message>"
 ```
