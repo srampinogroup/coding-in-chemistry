@@ -176,27 +176,33 @@ keep and you'll need to solve conflicts manually.
 
 # gnuplot
 
+<span style="color:blue">
 # Exercises
 
 ## 1
 
 Create a file named `helloworld.f90` with the following content:
 ```fortran
-PRINT *, "Hello world"                                                
-END PROGRAM
+PROGRAM helloworld
+  PRINT *, "Hello world"                                                
+END PROGRAM helloworld
 ```
 Now to compile type:
 ```bash
-gfortran -o helloworld.exe helloworld.f90
+gfortran -o helloworld helloworld.f90
 ```
 and to execute
 ```bash
-./helloworld.exe
+./helloworld
 ```
 If you encounter a 'not an executable' error, you might need to do once
 ```bash
-chmod u+x ./helloworld.exe
+chmod u+x ./helloworld
 ```
+Note that the program name (specified via the `PROGRAM` statement)
+does not necessarily match the name of the executable file. In the
+above example it does, but does not have to.
+</span>.
 
 ## 2
 
