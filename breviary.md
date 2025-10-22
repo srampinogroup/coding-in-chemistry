@@ -1,7 +1,7 @@
 ### Conventions
 
 `<...>` is the used to indicate custom content. E.g., `<filename>` indicates
-a custom filename such as `myfile.txt`, or `myprogram.f90`, etc.
+a custom filename such as `myfile.txt`, or `myprogram.f95`, etc.
 
 # bash
 
@@ -171,16 +171,9 @@ files from your different devices without saving your progress each time
 (i.e. pushing), because then Git will not know wich version you want to
 keep and you'll need to solve conflicts manually.
 
+## Exercise 1
 
-# gfortran
-
-# gnuplot
-
-# Exercises
-
-## 1
-
-Create a file named `helloworld.f90` with the following content:
+Create a file named `helloworld.f95` with the following content:
 ```fortran
 PROGRAM helloworld
   PRINT *, "Hello world"                                                
@@ -188,7 +181,7 @@ END PROGRAM helloworld
 ```
 Now to compile type:
 ```bash
-gfortran -o helloworld helloworld.f90
+gfortran -o helloworld helloworld.f95
 ```
 and to execute
 ```bash
@@ -202,8 +195,12 @@ Note that the program name (specified via the `PROGRAM` statement)
 does not necessarily have to match the name of the executable file.
 In the above example it does, but does not have to.
 
-## 2
+## Exercise 2
 
 Create a folder `test` inside your repository and move
-`helloworld.f90` into that folder. Add the `helloworld.f90` to the
+`helloworld.f95` into that folder. Add the `helloworld.f95` to the
 tracked files, commit and push.
+
+# gfortran
+
+# gnuplot
