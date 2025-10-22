@@ -55,8 +55,7 @@ $$
 3. Calculate $v^{(a,x)}_{k+1}$:
 
 $$
-v^{(a,x)}_{k+1} = v^{(a,x)}_k + \frac{\tau}{2m_a} \left( f^{(a,x)}_k
-+ f^{(a,x)}_{k+1} \right)
+v^{(a,x)}_{k+1} = v^{(a,x)}_k + \frac{\tau}{2m_a} \left( f^{(a,x)}_k + f^{(a,x)}_{k+1} \right)
 $$
 
 4. Assign the value of $x^{(a)}_{k+1}$ to $x^{(a)}_k$ and go back go
