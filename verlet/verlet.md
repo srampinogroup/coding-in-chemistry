@@ -12,11 +12,11 @@ $v_{k+1} = v_k + \frac{\tau}{2m} (f_k + f_{k+1})$
 Such scheme can be easily generalized to the many-atom, higher dimensional case.
 For a system of
 $N$ particles in three-dimensional space, the potential is a function
-of the positions of the particles $\{\boldsymbol{r}_a\}$.
+of the positions of the particles $\\{\boldsymbol{r}_a\\}$.
 
 The force acting on the $a$-th atom will then be:
 
-$\vf^{(a)} = - \nabla^{(a)} V (\{\boldsymbol{r}_a\})$
+$\vf^{(a)} = - \nabla^{(a)} V (\\{\boldsymbol{r}_a\\})$
 where superscript $a$ on the gradient operator indicates that the derivatives should be taken with respect to the coordinates of the $a$-th atom.
 For each separate Cartesian component, the above discussed Verlet recursive scheme will apply, with the $x$, $y$, and $z$ components of the forces being, respectively,
 %
