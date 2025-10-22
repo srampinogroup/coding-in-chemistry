@@ -1,6 +1,8 @@
 # Hands-on session 1. Classical trajectories via the velocity Verlet
 # algorithm
 
+In a finite-difference scheme, time is discretized using a constant time step   $\Delta t = \tau$.
+Let us denote with subscript $k$ the quantities at the $k$-th time step: the t  ime $t_k=k\tau$, the position of the particle $x_k = x(t_k)$, its velocity $v_  k =v(t_k)$, and the force acting on it $f_k = f(x_k)$.
 
 
 $x_{k+1} = x_k + \tau v_k + \frac{\tau^2}{2} \frac{f_k}{m}$
