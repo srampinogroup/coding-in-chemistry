@@ -176,7 +176,6 @@ keep and you'll need to solve conflicts manually.
 
 # gnuplot
 
-<span style="color:blue">
 # Exercises
 
 ## 1
@@ -200,9 +199,8 @@ If you encounter a 'not an executable' error, you might need to do once
 chmod u+x ./helloworld
 ```
 Note that the program name (specified via the `PROGRAM` statement)
-does not necessarily match the name of the executable file. In the
-above example it does, but does not have to.
-</span>.
+does not necessarily have to match the name of the executable file.
+In the above example it does, but does not have to.
 
 ## 2
 
