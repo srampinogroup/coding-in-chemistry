@@ -22,7 +22,9 @@ where superscript $a$ on the gradient operator indicates that the derivatives sh
 
 For each separate Cartesian component, the above discussed Verlet recursive scheme will apply, with the $x$, $y$, and $z$ components of the forces being, respectively,
 
-$f^{(a,x)} = - \frac{~\mathrm{d}}{~\mathrm{d} x^{(a)}} V (\{\boldsymbol{r}_a\})$
+$$
+f^{(a,x)} = - \frac{~\mathrm{d}}{~\mathrm{d} x^{(a)}} V (\{\boldsymbol{r}_a\})
+$$
 
 $f^{(a,y)} = - \frac{~\mathrm{d}}{~\mathrm{d} y^{(a)}} V (\{\boldsymbol{r}_a\})$
 
