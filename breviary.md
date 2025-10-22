@@ -201,6 +201,54 @@ Create a folder `test` inside your repository and move
 `helloworld.f95` into that folder. Add the `helloworld.f95` to the
 tracked files, commit and push.
 
-# gfortran
+# Fortran
 
-# gnuplot
+We will use the `gfortran` compiler throughout the course. A suitable
+Fortran standard for computation-oriented scientific programming is
+Fortran 95, in that it retains the advantages of a small and copmact
+language but offers support for so-called object-based programming.
+The examples reported here will adhere to the F syntax rules, the F
+language being a subset of Fortran 95 forcing programmers towards
+good programming practices.
+
+F syntax rules: http://pages.swcp.com/~walt/F/F_bnf.html
+
+## Variable declaration
+
+```fortran
+  INTEGER :: i, j, k                                                 
+  REAL (KIND=wp) :: a, b, c                                          
+  CHARACTER (LEN=72) :: str1, str2, str3                             
+```
+
+NB: The following instruction should be used when declaring an array as an attribute of a derived datatype
+
+```fortran
+  REAL (KIND=wp), DIMENSION(:), POINTER :: array                     
+```
+                                                                      
+## I/O                                                                
+                                                                      
+```fortran
+  OPEN (UNIT=11, FILE=infile, STATUS="old", ACTION="read")           
+                                                                      
+  READ (UNIT=11, FMT=*) mycube%str1
+  READ (UNIT=11, FMT=*) mycube%str2
+  READ (UINT=11, FMT=*) mycube%natom, mycube%xmin, mycube%ymin, mycube%zmin
+  ! when you don't need the file any more:
+  CLOSE (11)                                                         
+```
+
+## Memory allocation                                                  
+                                                                      
+```fortran
+  ALLOCATE ( mycube%zahl(mycube%natoms) )                            
+```
+                                                                      
+## Reading the array...                                               
+                                                                      
+```
+    ALLOCATE ( mycube%array(mycube%nx*mycube%ny*mycube%nz) )          
+
+    READ (UNIT=11, FMT=*) mycube%array                                
+```
