@@ -1,5 +1,5 @@
-# Hands-on session 1. Classical trajectories via the velocity Verlet
-# algorithm
+# Hands-on session 1.
+# Classical trajectories via the velocity Verlet algorithm
 
 In a finite-difference scheme, time is discretized using a constant time step   $\Delta t = \tau$.
 Let us denote with subscript $k$ the quantities at the $k$-th time step: the t  ime $t_k=k\tau$, the position of the particle $x_k = x(t_k)$, its velocity $v_  k =v(t_k)$, and the force acting on it $f_k = f(x_k)$.
@@ -53,6 +53,7 @@ $$
 2. Evaluate $f^{(a,x)}_{k+1}$
 
 3. Calculate $v^{(a,x)}_{k+1}$:
+
 $$
 v^{(a,x)}_{k+1} = v^{(a,x)}_k + \frac{\tau}{2m_a} \left( f^{(a,x)}_k
 + f^{(a,x)}_{k+1} \right)
@@ -86,6 +87,7 @@ V_\text{LJ} (r) = 4 \epsilon
 	- \left( \frac{\sigma}{r} \right)^{6}
 \right]
 $$
+
 featuring the well known short-range repulsion term and long-range attraction term.
 In this case, the
 derivative of the pair potential with respect to each Cartesian component of the position of an atom can be written in terms of $V'$, i.e. the derivative of the Lennard-Jones potential with respect to the argument of the same function.
