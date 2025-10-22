@@ -1,7 +1,11 @@
 # Hands-on session 1. Classical trajectories via the velocity Verlet
 # algorithm
 
-bla
+
+
+$x_{k+1} = x_k + \tau v_k + \frac{\tau^2}{2} \frac{f_k}{m}$
+
+$v_{k+1} = v_k + \frac{\tau}{2m} (f_k + f_{k+1})$
 
 
 
