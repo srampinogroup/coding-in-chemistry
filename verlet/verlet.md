@@ -91,7 +91,7 @@ $f^{(a,z)}$ = 0 kg m s<sup>-2</sup>.
 
 Create the file `verlet.f95` and type the following:
 
-```fortran
+```
 PROGRAM verlet
   IMPLICIT NONE
 
