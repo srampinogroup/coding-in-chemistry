@@ -81,27 +81,33 @@ Analogous schemes can be written for the $y$ and $z$ components.
 ## Exercise 1
 
 Write a Fortran program that implements the Verlet algorithm with $k$
-ranging from 1 to 200 and $\tau$ = 0.2 s for one
+ranging from 1 to 10 and $\tau$ = 0.2 s for one
 particle of mass 1 kg in 3D space subject to a constant force
 expressed by components $f^{(a,x)}$ = 0 kg m s<sup>-2</sup>,
 $f^{(a,y)}$ = 0.1 kg m s<sup>-2</sup>,
 $f^{(a,z)}$ = 0 kg m s<sup>-2</sup>.
+Use the following initial conditions: still particle in the origin of
+the reference frame.
+Make the program print the values of $x$, $y$, and $z$ of the
+particle at each time iteration.
 
-## Guidelines
+## Guidelines and tips
 
 Create the file `verlet.f95` and type the following:
 
 ```
 PROGRAM verlet
   IMPLICIT NONE
+  ! declare your variable here
 
-  ! write your program here
+  ! write your instructions here
 
 END PROGRAM verlet
 ```
 
 Language keywords will be typeset uppercase (they are not case
 sensitive, but we will stick to this convention).
+We will use two spaces for indented blocks of code.
 Lines starting with `!` are comments (not part of your Fortran
 program, will be ignored by the compiler).
 
@@ -118,8 +124,98 @@ and execute it:
 ./verlet
 ```
 
-Typically, you implement a small portion of code, and you test the
-program in order to verify that it behaves as expected (this is
-called debugging).
+Typically, you implement a small portion of code, and soon after you
+test the program in order to verify that it behaves as expected (this
+is called debugging). Don't forget to commit and push when you
+implemented something that works!
 
 ## Relevant examples of Fortran code
+
+### Variable declaration
+
+```
+IMPLICIT NONE
+INTEGER, PARAMETER :: wp = SELECTED_REAL_KIND (p=13, r=300)
+INTEGER :: i, j, k                                                 
+INTEGER :: l, m                                               
+CHARACTER (LEN=72) :: str1, str2, str3       
+REAL (KIND=wp) :: a, b, c                                          
+REAL, DIMENSION(:), ALLOCATABLE :: x
+REAL, DIMENSION(:,:), ALLOCATABLE :: xmat
+```
+
+$x$ will be an one-index array, $xmat$ will be an two-index array.
+Both will be of undefined dimensions, until their size is defined and
+the related memory is allocated.
+
+### Memory allocation
+
+```
+ALLOCATE ( x (300) )
+ALLOCATE ( xmat (200,300) )
+```
+
+Now `x` is a vector with 300 elements. The `i`-th element (with `i`
+referencing an integer between 1 and 300) is referenced with `x(i)`.
+`xmat` is instead a rectangular matrix with 200 rows and 300 columns.
+Element $ij$ is reference with `xmat(i,j)` with `i` and `j`
+referencing integer numbers in the proper ranges.
+
+When you don't need `x` and `xmat` any more, you free up the
+allocated memory:
+
+```
+DEALLOCATE ( x, xmat )
+```
+
+### Assignemnt
+
+```
+a = b * c
+
+a = a + ( b * c)
+
+a = 3.0_wp
+```
+   
+
+2. I/O
+
+   OPEN (UNIT=11, FILE="<input file>", STATUS="old", ACTION="read")
+
+   READ (UNIT=11, FMT=*) a, b, c
+   READ (UNIT=11, FMT=*) e, f, g [every READ corresponds to a line]
+
+  [when you don't need the file any more:]
+   CLOSE (11)
+
+
+   OPEN (UNIT=12, FILE="<output file>", STATUS="replace", ACTION="write")
+
+   WRITE (UNIT=12, FMT=*) a, b, c
+   WRITE (UNIT=12, FMT=*) e, f, g [every WRITE corresponds to a line]
+
+  [when you don't need the file any more:]
+   CLOSE (12)
+
+
+5. Iteration
+
+   INTEGER :: i, n
+ 
+   <...>
+
+   n = 10
+
+   DO i = 1, n
+     <...>
+   ENDDO
+
+   corresponds to:
+
+   i = 1
+   [if i > n exit]
+   <...>
+   i = i + 1
+   [if i > n exit]
+   <...>
