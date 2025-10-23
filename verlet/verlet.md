@@ -8,7 +8,7 @@ step: the time $t_k=k\tau$, the position of the particle $x_k =
 x(t_k)$, its velocity $v_  k =v(t_k)$, and the force acting on it
 $f_k = f(x_k)$.
 
-For a one-particle of mass $m$ and one dimension $x$, the velocity Verlet
+For one particle of mass $m$ and one dimension $x$, the velocity Verlet
 algorithm is based on the following recursive scheme:
 
 $$
@@ -38,18 +38,15 @@ scheme will apply, with the $x$, $y$, and $z$ components of the
 forces being, respectively,
 
 $$
-f^{(a,x)} =
-- \frac{~\mathrm{d}}{~\mathrm{d} x^{(a)}} V (\{\boldsymbol{r}_a\})
+f^{(a,x)} = - \frac{~\mathrm{d}}{~\mathrm{d} x^{(a)}} V (\{\boldsymbol{r}_a\})
 $$
 
 $$
-f^{(a,y)} =
-- \frac{~\mathrm{d}}{~\mathrm{d} y^{(a)}} V (\{\boldsymbol{r}_a\})
+f^{(a,y)} = - \frac{~\mathrm{d}}{~\mathrm{d} y^{(a)}} V (\{\boldsymbol{r}_a\})
 $$
 
 $$
-f^{(a,z)} =
-- \frac{~\mathrm{d}}{~\mathrm{d} z^{(a)}} V (\{\boldsymbol{r}_a\})
+f^{(a,z)} = - \frac{~\mathrm{d}}{~\mathrm{d} z^{(a)}} V (\{\boldsymbol{r}_a\})
 $$
 
 Thus, a distinct recursion relation rooted in the Velocity Verlet
