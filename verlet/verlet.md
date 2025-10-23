@@ -168,54 +168,97 @@ allocated memory:
 DEALLOCATE ( x, xmat )
 ```
 
-### Assignemnt
+### Assignement
 
+Examples:
 ```
 a = b * c
 
 a = a + ( b * c)
 
 a = 3.0_wp
+
+x(i) = 3.5_wp
+
+x(3) = 1.0E-12_wp
+
+xmat(i,j) = 9.2E6_wp
+
 ```
-   
-
-2. I/O
-
-   OPEN (UNIT=11, FILE="<input file>", STATUS="old", ACTION="read")
-
-   READ (UNIT=11, FMT=*) a, b, c
-   READ (UNIT=11, FMT=*) e, f, g [every READ corresponds to a line]
-
-  [when you don't need the file any more:]
-   CLOSE (11)
-
-
-   OPEN (UNIT=12, FILE="<output file>", STATUS="replace", ACTION="write")
-
-   WRITE (UNIT=12, FMT=*) a, b, c
-   WRITE (UNIT=12, FMT=*) e, f, g [every WRITE corresponds to a line]
-
-  [when you don't need the file any more:]
-   CLOSE (12)
-
-
-5. Iteration
-
-   INTEGER :: i, n
  
-   <...>
+### I/O
 
-   n = 10
+#### Read from file
 
-   DO i = 1, n
-     <...>
-   ENDDO
+```
+OPEN (UNIT=11, FILE="<input file>", STATUS="old", ACTION="read")
 
-   corresponds to:
+READ (UNIT=11, FMT=*) a, b, c
+READ (UNIT=11, FMT=*) i, j, k [every READ corresponds to a line]
+READ (UNIT=11, FMT=*) x(1), x(2), x(3)
+```
 
-   i = 1
-   [if i > n exit]
-   <...>
-   i = i + 1
-   [if i > n exit]
-   <...>
+When reading from a given unit, every `READ` corresponds to a line.
+When reading multiple variables (e.g. `a, b, c`) in one `READ` line,
+the expected delimiter in the corresponding finle line is one or more
+blank spaces.
+A compatible `<input file>` with the above code would be for instance:
+
+```
+3.0 5.0 1.0E-2
+4 200 350
+0.0 0.0 0.0
+```
+
+Note that you do not need to append `_wp` when you read real values.
+
+When you don't need the file any more:
+
+```
+CLOSE (11)
+```
+
+#### Write to file
+
+```
+OPEN (UNIT=12, FILE="<output file>", STATUS="replace", ACTION="write")
+
+WRITE (UNIT=12, FMT=*) a, b, c
+WRITE (UNIT=12, FMT=*) x(1), x(2), x(3)
+```
+
+Again, every `WRITE` corresponds to a line.
+
+When you don't need the file any more:
+
+```
+CLOSE (12)
+```
+
+### Iteration
+
+```
+INTEGER :: i, n
+! ...
+n = 10
+
+DO i = 1, n
+  <block of instructions>
+ENDDO
+```
+
+corresponds to:
+
+```
+i = 1
+```
+If `i > n`, exit loop. Otherwise:
+```
+<block of instructions>
+i = i + 1
+```
+If `i > n`, exit loop. Otherwise:
+<block of instructions>
+i = i + 1
+```
+Etc...
