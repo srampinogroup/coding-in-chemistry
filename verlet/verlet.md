@@ -1,8 +1,15 @@
 # Hands-on session 1.
 # Classical trajectories via the velocity Verlet algorithm
 
-In a finite-difference scheme, time is discretized using a constant time step   $\Delta t = \tau$.
-Let us denote with subscript $k$ the quantities at the $k$-th time step: the t  ime $t_k=k\tau$, the position of the particle $x_k = x(t_k)$, its velocity $v_  k =v(t_k)$, and the force acting on it $f_k = f(x_k)$.
+In finite-difference schemes, time is discretized using a constant
+time step   $\Delta t = \tau$.
+Let us denote with subscript $k$ the quantities at the $k$-th time
+step: the t  ime $t_k=k\tau$, the position of the particle $x_k =
+x(t_k)$, its velocity $v_  k =v(t_k)$, and the force acting on it
+$f_k = f(x_k)$.
+
+For a one-particle one-dimensional system, the velocity Verlet
+algorithm is based on the following recursive scheme:
 
 $$
 x_{k+1} = x_k + \tau v_k + \frac{\tau^2}{2} \frac{f_k}{m}
@@ -12,36 +19,47 @@ $$
 v_{k+1} = v_k + \frac{\tau}{2m} (f_k + f_{k+1})
 $$
 
-Such scheme can be easily generalized to the many-atom, higher dimensional case.
-For a system of
-$N$ particles in three-dimensional space, the potential is a function
+Such scheme can be easily generalized to the many-atom, higher
+dimensional case. For a system of $N$ particles in three-dimensional
+space, the potential is a function
 of the positions of the particles $\\{\boldsymbol{r}_a\\}$.
-
 The force acting on the $a$-th atom will then be:
 
 $$
 \boldsymbol{f}^{(a)} = - \nabla^{(a)} V (\\{\boldsymbol{r}_a\\})
 $$
 
-where superscript $a$ on the gradient operator indicates that the derivatives should be taken with respect to the coordinates of the $a$-th atom.
+where superscript $a$ on the gradient operator indicates that the
+derivatives should be taken with respect to the coordinates of the
+$a$-th atom.
 
-For each separate Cartesian component, the above discussed Verlet recursive scheme will apply, with the $x$, $y$, and $z$ components of the forces being, respectively,
-
-$$
-f^{(a,x)} = - \frac{~\mathrm{d}}{~\mathrm{d} x^{(a)}} V (\{\boldsymbol{r}_a\})
-$$
-
-$$
-f^{(a,y)} = - \frac{~\mathrm{d}}{~\mathrm{d} y^{(a)}} V (\{\boldsymbol{r}_a\})
-$$
+For each separate Cartesian component, the velocity Verlet recursive
+scheme will apply, with the $x$, $y$, and $z$ components of the
+forces being, respectively,
 
 $$
-f^{(a,z)} = - \frac{~\mathrm{d}}{~\mathrm{d} z^{(a)}} V (\{\boldsymbol{r}_a\})
+f^{(a,x)} =
+- \frac{~\mathrm{d}}{~\mathrm{d} x^{(a)}} V (\{\boldsymbol{r}_a\})
 $$
 
-Thus, a distinct recursion relation rooted in the Velocity Verlet algorithm can be used for each coordinate-velocity pair but these are all coupled through the force, which depends on the coordinates of all the atoms.
+$$
+f^{(a,y)} =
+- \frac{~\mathrm{d}}{~\mathrm{d} y^{(a)}} V (\{\boldsymbol{r}_a\})
+$$
 
-Focusing on the $x$ component, for instance, the final algorithm, with given initial $x_k$ and $v_k$ and a known expression for $f(x)$, is:
+$$
+f^{(a,z)} =
+- \frac{~\mathrm{d}}{~\mathrm{d} z^{(a)}} V (\{\boldsymbol{r}_a\})
+$$
+
+Thus, a distinct recursion relation rooted in the Velocity Verlet
+algorithm can be used for each coordinate-velocity pair but these are
+all coupled through the force, which depends on the coordinates of
+all the atoms.
+
+Focusing on the $x$ component, for instance, the final algorithm,
+with given initial $x_k$ and $v_k$ and a known expression for $f(x)$,
+is:
 
 1. Calculate $x^{(a)}_{k+1}$:
 
@@ -62,6 +80,10 @@ $$
 back to step 1.
 
 Analogous schemes can be written for the $y$ and $z$ components.
+
+## Exercise 1
+
+## Exercise 2
 
 An easy and fruitful exercise for the eager student is to implement the Velocity Verlet algorithm for a system of $N$ atoms interacting through pairwise additive Lennard-Jones potentials:
 
