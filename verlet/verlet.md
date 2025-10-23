@@ -82,7 +82,9 @@ Analogous schemes can be written for the $y$ and $z$ components.
 
 Write a Fortran program that implements the Verlet algorithm for one
 particle of mass $1 \text{kg}$ in 3D space subject to a constant force
-expressed by components $f^{(a,x)}$ = 0 kg m /s$2$, $f^{(a,y)} = 0$, $f^{(a,z)} = 0.1$
+expressed by components $f^{(a,x)}$ = 0 kg m s<sup>-2</sup>,
+$f^{(a,y)}$ = 0 kg m s<sup>-2</sup>,
+$f^{(a,z)}$ = 0.1 kg m s<sup>-2</sup>.
 
 ## Exercise 2
 
