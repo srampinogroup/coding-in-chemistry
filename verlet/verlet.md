@@ -100,8 +100,12 @@ PROGRAM verlet
 END PROGRAM verlet
 ```
 
+Language keywords will be typeset uppercase (they are not case
+sensitive, but we will stick to this convention).
 Lines starting with `!` are comments (not part of your Fortran
-program, will be ignored by the compiler). To test your program, you
+program, will be ignored by the compiler).
+
+To test your program, you
 need to compile it:
 
 ```
