@@ -80,9 +80,13 @@ Analogous schemes can be written for the $y$ and $z$ components.
 
 ## Exercise 1
 
+Write a Fortran program that implements the Verlet algorithm for one
+particle of mass $1 \text{kg}$ in 3D space subject to a constant force
+expressed by components $f^{(a,x)} = 0 \text{kg m s}^{-2}$ , $f^{(a,y)} = 0$, $f^{(a,z)} = 0.1$
+
 ## Exercise 2
 
-An easy and fruitful exercise for the eager student is to implement the Velocity Verlet algorithm for a system of $N$ atoms interacting through pairwise additive Lennard-Jones potentials:
+Implement the Velocity Verlet algorithm for a system of $N$ atoms interacting through pairwise additive Lennard-Jones potentials:
 
 $$
 V (\{\boldsymbol{r}_a\})
@@ -106,7 +110,6 @@ V_\text{LJ} (r) = 4 \epsilon
 \right]
 $$
 
-featuring the well known short-range repulsion term and long-range attraction term.
 In this case, the
 derivative of the pair potential with respect to each Cartesian component of the position of an atom can be written in terms of $V'$, i.e. the derivative of the Lennard-Jones potential with respect to the argument of the same function.
 For the $x$ component, for example:
@@ -126,7 +129,7 @@ $$V_\text{LJ}'(r) = 4 \epsilon
 \right]
 $$
 Accordingly, the $x$ component of the force acting on the $a$-th atom to be used in step 2
-of the above summarized algorithm is:
+of the algorithm is:
 $$
 f^{(a,x)}_{k+1} = - \sum_{b \neq a} \frac{x_{ab}}{r_{ab}} V_\text{LJ}'(r_{ab})
 $$
