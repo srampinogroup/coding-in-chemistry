@@ -80,9 +80,42 @@ Analogous schemes can be written for the $y$ and $z$ components.
 
 ## Exercise 1
 
-Write a Fortran program that implements the Verlet algorithm for one
+Write a Fortran program that implements the Verlet algorithm with $k$
+ranging from 1 to 200 and $\tau$ = 0.2 s for one
 particle of mass 1 kg in 3D space subject to a constant force
 expressed by components $f^{(a,x)}$ = 0 kg m s<sup>-2</sup>,
 $f^{(a,y)}$ = 0.1 kg m s<sup>-2</sup>,
 $f^{(a,z)}$ = 0 kg m s<sup>-2</sup>.
 
+## Guidelines
+
+Create the file `verlet.f95` and type the following:
+
+```fortran
+PROGRAM verlet
+  IMPLICIT NONE
+
+  ! write your program here
+
+END PROGRAM verlet
+```
+
+Lines starting with `!` are comments (not part of your Fortran
+program, will be ignored by the compiler). To test your program, you
+need to compile it:
+
+```
+gfortran -o verlet verlet.f95
+```
+
+and execute it:
+
+```
+./verlet
+```
+
+Typically, you implement a small portion of code, and you test the
+program in order to verify that it behaves as expected (this is
+called debugging).
+
+## Relevant examples of Fortran code
