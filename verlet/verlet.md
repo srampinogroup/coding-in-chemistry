@@ -282,7 +282,7 @@ ENDIF
 We will come to this later on: not strictly necessary to complete the
 exercies.
 
-### Misellanea
+### Miscellanea
 
 In addition to `INTEGER`, `REAL`, and `CHARACTER`, variables can be
 `COMPLEX`, `LOGICAL`, or of user-defined (so-called `derived`) data
