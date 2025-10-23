@@ -4,11 +4,11 @@
 In finite-difference schemes, time is discretized using a constant
 time step   $\Delta t = \tau$.
 Let us denote with subscript $k$ the quantities at the $k$-th time
-step: the t  ime $t_k=k\tau$, the position of the particle $x_k =
+step: the time $t_k=k\tau$, the position of the particle $x_k =
 x(t_k)$, its velocity $v_  k =v(t_k)$, and the force acting on it
 $f_k = f(x_k)$.
 
-For a one-particle one-dimensional system, the velocity Verlet
+For a one-particle of mass $m$ and one dimension $x$, the velocity Verlet
 algorithm is based on the following recursive scheme:
 
 $$
