@@ -1,4 +1,12 @@
 # Hands-on session 1.
+
+#### Objectives
+1. Translate formulae into algorithms 
+2. Write and compile a basic Fortran program (one single source file,
+no external procedures)
+3. Familiarize with basic scientific programming: variable
+declaration, assignement, basic I/O, interaction constructs
+
 # Classical trajectories via the Velocity Verlet algorithm
 
 In finite-difference schemes, time is discretized using a constant
