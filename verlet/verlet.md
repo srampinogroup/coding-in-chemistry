@@ -1,5 +1,5 @@
 # Hands-on session 1.
-# Classical trajectories via the velocity Verlet algorithm
+# Classical trajectories via the Velocity Verlet algorithm
 
 In finite-difference schemes, time is discretized using a constant
 time step   $\Delta t = \tau$.
@@ -8,7 +8,7 @@ step: the time $t_k=k\tau$, the position of the particle $x_k =
 x(t_k)$, its velocity $v_  k =v(t_k)$, and the force acting on it
 $f_k = f(x_k)$.
 
-For one particle of mass $m$ and one dimension $x$, the velocity Verlet
+For one particle of mass $m$ in one dimension $x$, the Velocity Verlet
 algorithm is based on the following recursive scheme:
 
 $$
@@ -19,11 +19,11 @@ $$
 v_{k+1} = v_k + \frac{\tau}{2m} (f_k + f_{k+1})
 $$
 
-Such scheme can be easily generalized to the many-atom, higher
+Such scheme can be easily generalized to the many-particle, higher
 dimensional case. For a system of $N$ particles in three-dimensional
 space, the potential is a function
 of the positions of the particles $\\{\boldsymbol{r}_a\\}$.
-The force acting on the $a$-th atom will then be:
+The force acting on the $a$-th particle will then be:
 
 $$
 \boldsymbol{f}^{(a)} = - \nabla^{(a)} V (\\{\boldsymbol{r}_a\\})
@@ -31,9 +31,9 @@ $$
 
 where superscript $a$ on the gradient operator indicates that the
 derivatives should be taken with respect to the coordinates of the
-$a$-th atom.
+$a$-th particle.
 
-For each separate Cartesian component, the velocity Verlet recursive
+For each separate Cartesian component, the Velocity Verlet recursive
 scheme will apply, with the $x$, $y$, and $z$ components of the
 forces being, respectively,
 
@@ -52,7 +52,7 @@ $$
 Thus, a distinct recursion relation rooted in the Velocity Verlet
 algorithm can be used for each coordinate-velocity pair but these are
 all coupled through the force, which depends on the coordinates of
-all the atoms.
+all the particles.
 
 Focusing on the $x$ component, for instance, the final algorithm,
 with given initial $x_k$ and $v_k$ and a known expression for $f(x)$,
@@ -86,6 +86,7 @@ particle of mass 1 kg in 3D space subject to a constant force
 expressed by components $f^{(a,x)}$ = 0 kg m s<sup>-2</sup>,
 $f^{(a,y)}$ = 0.1 kg m s<sup>-2</sup>,
 $f^{(a,z)}$ = 0 kg m s<sup>-2</sup>.
+
 Use the following initial conditions: still particle in the origin of
 the reference frame.
 Make the program print the values of $x$, $y$, and $z$ of the
@@ -107,7 +108,7 @@ END PROGRAM verlet
 
 Language keywords will be typeset uppercase (they are not case
 sensitive, but we will stick to this convention).
-We will use two spaces for indented blocks of code.
+We will use two blank spaces for indenting blocks of code.
 Lines starting with `!` are comments (not part of your Fortran
 program, will be ignored by the compiler).
 
@@ -118,7 +119,7 @@ need to compile it:
 gfortran -o verlet verlet.f95
 ```
 
-and execute it:
+(this will generate the `verlet` executable) and execute it:
 
 ```
 ./verlet
@@ -144,7 +145,7 @@ REAL, DIMENSION(:), ALLOCATABLE :: x
 REAL, DIMENSION(:,:), ALLOCATABLE :: xmat
 ```
 
-$x$ will be an one-index array, $xmat$ will be an two-index array.
+$x$ will be an one-index array, `xmat` will be an two-index array.
 Both will be of undefined dimensions, until their size is defined and
 the related memory is allocated.
 
@@ -158,7 +159,7 @@ ALLOCATE ( xmat (200,300) )
 Now `x` is a vector with 300 elements. The `i`-th element (with `i`
 referencing an integer between 1 and 300) is referenced with `x(i)`.
 `xmat` is instead a rectangular matrix with 200 rows and 300 columns.
-Element $ij$ is reference with `xmat(i,j)` with `i` and `j`
+Element $ij$ is referenced with `xmat(i,j)` with `i` and `j`
 referencing integer numbers in the proper ranges.
 
 When you don't need `x` and `xmat` any more, you free up the
@@ -258,7 +259,47 @@ If `i > n`, exit loop. Otherwise:
 i = i + 1
 ```
 If `i > n`, exit loop. Otherwise:
+```
 <block of instructions>
 i = i + 1
 ```
 Etc...
+
+### Alternative
+
+Basic alternative construct:
+
+```
+IF ( i > 0) THEN
+  <block A>
+ELSEIF ( i < 0) THEN
+  <block B>
+ELSE
+  <block C>
+ENDIF
+```
+
+We will come to this later on: not strictly necessary to complete the
+exercies.
+
+### Misellanea
+
+In addition to `INTEGER`, `REAL`, and `CHARACTER`, variables can be
+`COMPLEX`, `LOGICAL`, or of user-defined (so-called `derived`) data
+type ( `TYPE`), i.e. composite data structures
+resulting from the aggregation of simple (or other derived) data
+types.
+
+#### Main operators
+
+##### Arithmetic
+`+`, `-`, `*`, `/`, `**`: addition, subtraction,
+multiplication, division and exponentiation operator, respectively.
+
+##### Relational
+`==`, `/=`, `<`, `<=`, `>`, `>=`: equal to, not equal to, less than,
+less than or equal to, greater than, greater than or equal to,
+respectively)
+
+##### Logical
+`.AND.`, `.OR.`, `.NOT.`, `.EQV.`, and `.NEQV.`.
