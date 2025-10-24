@@ -107,7 +107,7 @@ that directory. Create the file `verlet.f95` and type the following:
 
 ```
 PROGRAM verlet
-  IMPLICIT NONE
+  IMPLICIT NONE ! inline comment
   ! declare your variable here
 
   ! write your instructions here
