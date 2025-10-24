@@ -200,6 +200,12 @@ xmat(i,j) = 9.2E6_wp
  
 ### I/O
 
+#### Print to screen
+
+```
+PRINT *, a, b, c
+```
+
 #### Read from file
 
 ```
