@@ -102,7 +102,8 @@ particle at each time iteration.
 
 ## Guidelines and tips
 
-Create the file `verlet.f95` and type the following:
+Create a `verlet` folder in your `cc2526` repository and move into
+that directory. Create the file `verlet.f95` and type the following:
 
 ```
 PROGRAM verlet
