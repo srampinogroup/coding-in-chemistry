@@ -152,8 +152,8 @@ INTEGER :: i, j, k
 INTEGER :: l, m                                               
 CHARACTER (LEN=72) :: str1, str2, str3       
 REAL (KIND=wp) :: a, b, c                                          
-REAL, DIMENSION(:), ALLOCATABLE :: x
-REAL, DIMENSION(:,:), ALLOCATABLE :: xmat
+REAL (KIND=wp), DIMENSION(:), ALLOCATABLE :: x
+REAL (KIND=wp), DIMENSION(:,:), ALLOCATABLE :: xmat
 ```
 
 $x$ will be an one-index array, `xmat` will be an two-index array.
