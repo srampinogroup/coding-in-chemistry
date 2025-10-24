@@ -212,7 +212,7 @@ PRINT *, a, b, c
 OPEN (UNIT=11, FILE="<input file>", STATUS="old", ACTION="read")
 
 READ (UNIT=11, FMT=*) a, b, c
-READ (UNIT=11, FMT=*) i, j, k [every READ corresponds to a line]
+READ (UNIT=11, FMT=*) i, j, k ![every READ corresponds to a line]
 READ (UNIT=11, FMT=*) x(1), x(2), x(3)
 ```
 
