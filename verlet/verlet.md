@@ -121,6 +121,8 @@ We will use two blank spaces for indenting blocks of code.
 Lines starting with `!` are comments (not part of your Fortran
 program, will be ignored by the compiler).
 
+Add `verlet.f95` to the tracked files of your repository.
+
 To test your program, you
 need to compile it:
 
@@ -135,8 +137,8 @@ gfortran -o verlet verlet.f95
 ```
 
 Typically, you implement a small portion of code, and soon after you
-test the program in order to verify that it behaves as expected (this
-is called debugging). Don't forget to commit and push when you
+test the program in order to verify that it behaves as expected.
+ Don't forget to commit and push when you
 implemented something that works!
 
 ## Relevant examples of Fortran code
