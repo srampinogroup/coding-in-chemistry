@@ -361,7 +361,7 @@ Subroutines
 ## Exercise 2
 
 Write a Fortran program that implements the Velocity Verlet algorithm
-for a system of $N$ Argon atoms in 3D space interacting through
+for a system of $N$ Neon atoms in 3D space interacting through
 pairwise additive Lennard-Jones potentials ():
 
 $\sigma$ =
