@@ -343,3 +343,13 @@ If the program does not behave as expected:
 
 - Are you using the value of a variable before that value has been
   set?
+
+## Exercise 1a
+
+Check the convergence of your trajectory with respect to the
+time-step value. How small has the time step to be in order to get a
+trajectory converged within 1 cm after 2 minutes of simulation? Also
+monitor the energy conservation after 2 minutes as a function of the
+time step (at each time step the change in kinetic energy can be
+evaluated from the velocities, the change in potential energy can be
+evaluated from the displacement).
