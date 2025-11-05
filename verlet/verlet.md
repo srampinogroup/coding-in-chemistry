@@ -88,8 +88,8 @@ Analogous schemes can be written for the $y$ and $z$ components.
 
 ## Exercise 1
 
-Write a Fortran program that implements the Verlet algorithm with $k$
-ranging from 1 to 10 and $\tau$ = 0.2 s for one
+Write a Fortran program that implements the Velocity Verlet algorithm
+with $k$ ranging from 1 to 10 and $\tau$ = 0.2 s for one
 particle of mass 1 kg in 3D space subject to a constant force
 expressed by components $f^{(a,x)}$ = 0 kg m s<sup>-2</sup>,
 $f^{(a,y)}$ = 0.1 kg m s<sup>-2</sup>,
@@ -353,3 +353,17 @@ monitor the energy conservation after 2 minutes as a function of the
 time step (at each time step the change in kinetic energy can be
 evaluated from the velocities, the change in potential energy can be
 evaluated from the displacement).
+
+## Guidelines and tips
+
+Subroutines
+
+## Exercise 2
+
+Write a Fortran program that implements the Velocity Verlet algorithm
+for a generic system of $N$ atoms in 3D space interacting through a
+pairwise Lennard-Jones potential.
+
+## Guidelines and tips
+
+Functions
