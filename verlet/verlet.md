@@ -320,3 +320,26 @@ respectively)
 
 ##### Logical
 `.AND.`, `.OR.`, `.NOT.`, `.EQV.`, and `.NEQV.`.
+
+## Troubleshooting
+
+If you are having errors when compiling:
+
+- Are you trying to declare a variable outside the
+  variable-delcaration section, i.e. after one or more operational
+instructions such as variable assignement or read/write statements?
+Remember that all variable-declaration statements have to precede the
+operational statements.
+
+If your executable crashes:
+
+- Are you getting a 'Segmentation fault' error? If so, this might be
+  because you are trying to access an array element out of the actual
+boundaries of the array (e.g., say you have an 1D array `a` for which
+you specify size `300` with an `ALLOCATE` statement, and later on
+you try to access element `a(301)`.
+
+If the program does not behave as expected:
+
+- Are you using the value of a variable before that value has been
+  set?
