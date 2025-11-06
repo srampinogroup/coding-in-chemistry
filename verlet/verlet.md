@@ -379,24 +379,29 @@ interation. External procedures can be 'functions' or 'subroutines'.
 We will use function for the present purpose and introduce subroutines
 later one.
 
-Example of a function:
+We will soon see that external procedures are typically stored together
+in separate files from the main program. However, for the moment we
+will define them in the same file, just below the `END PROGRAM` statement
+of the main program as in the following example:
 ```
-PROGRAM main
-  IMPLICIT NONE
-  INTEGER :: i
-  REAL (KIND=wp) :: x
-  <...>
-  x = 5.0_wp
-  y = myexpfunction(i, x)
-  <...>
-END PROGRAM main
-
-FUNCTION myexpfunction(k, z)
-  REAL (KIND=wp) :: myexpfunction
-  INTEGER, INTENT(IN) :: k
-  REAL (KIND=wp) :: z
-  myexpfunction = z**k
-END FUNCTION myexpfunction
+PROGRAM main                                                          
+  IMPLICIT NONE                                                       
+  INTEGER, PARAMETER :: wp = SELECTED_REAL_KIND (p=13, r=300)         
+  INTEGER :: i                                                        
+  REAL (KIND=wp) :: x, y, myexpfunction                               
+  i = 3                                                               
+  x = 5.0_wp                                                          
+  y = myexpfunction(i, x)                                             
+  PRINT *, y                                                          
+END PROGRAM main                                                      
+                                                                      
+FUNCTION myexpfunction(k, z)                                          
+  INTEGER, PARAMETER :: wp = SELECTED_REAL_KIND (p=13, r=300)         
+  REAL (KIND=wp) :: myexpfunction                                     
+  INTEGER, INTENT(IN) :: k                                            
+  REAL (KIND=wp) :: z                                                 
+  myexpfunction = z**k                                                
+END FUNCTION myexpfunction 
 ```
 
 The change in potential energy associated to one iteration
