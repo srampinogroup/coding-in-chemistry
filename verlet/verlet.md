@@ -484,9 +484,51 @@ $$
 
 ### Array syntax
 
+The following code example may be useful to understand and exploit array syntax in Fortran.
+
+```
+PROGRAM arrays                                                        
+  IMPLICIT NONE                                                       
+  INTEGER, DIMENSION(3) :: vec                                        
+  INTEGER, DIMENSION(3,3) :: mat                                      
+                                                                      
+  vec = (/ 1, 2, 3 /)                                                 
+                                                                      
+  mat(1,:) = (/ 1, 2, 3 /)                                            
+  mat(2,:) = (/ 4, 5, 6 /)                                            
+  mat(3,:) = (/ 7, 8, 9 /)                                            
+                                                                      
+  PRINT *, vec                                                        
+  PRINT *, "---"                                                      
+                                                                      
+  PRINT *, mat(3,2:3)                                                 
+  PRINT *, "---"                                                      
+                                                                      
+  vec = vec * 2                                                       
+                                                                      
+  mat(:,1) = mat(:,1) + vec(:)                                        
+                                                                      
+  PRINT *, mat(1,:)                                                   
+  PRINT *, mat(2,:)                                                   
+  PRINT *, mat(3,:)                                                   
+END PROGRAM arrays
+```
+
+The output will be:
+```
+           1           2           3
+ ---
+           8           9
+ ---
+           3           2           3
+           8           5           6
+          13           8           9
+```
+
+
 ### External procedures
 
-Use a subroutine to evaluate the forces acting on a given particle. Subroutines and functions typically go into a 'module' in a separate file, which is imported in the main program. The following code illustrates how this works. Note that we are also putting into a module (`kinds` in file `finds.f95`) the definition of the parateters relating to machine precision (`sp` for single, `db` for double). We then opt to use a working precision `wp` equal to double precision when importing the module (see `USE` statements in the code examples below).
+Use a subroutine to evaluate the forces acting on a given particle. Subroutines and functions typically go into a 'module' in a separate file, which is imported in the main program. The following code illustrates how this works. Note that we are also putting into a module (named `kinds`, in file `kinds.f95`) the definition of the parateters relating to machine precision (`sp` for single, `db` for double). We then opt to use a working precision `wp` equal to double precision when importing the module (see `USE` statements in the code examples below).
 
 File `kinds.f95`:
 ```
