@@ -399,6 +399,16 @@ FUNCTION myexpfunction(k, z)
 END FUNCTION myexpfunction
 ```
 
+The change in potential energy associated to one iteration
+can be approximated as follows:
+
+$$
+V_{k+1} - V_k = \sum_a \left(
+  f_k^{(a,x)} (x_{k+1}^(a) - x_{k}^(a)) +
+  f_k^{(a,y)} (y_{k+1}^(a) - y_{k}^(a)) +
+  f_k^{(a,z)} (z_{k+1}^(a) - z_{k}^(a))
+\right]
+$$
 
 
 
