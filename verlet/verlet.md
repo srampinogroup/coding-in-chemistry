@@ -344,19 +344,35 @@ If the program does not behave as expected:
 - Are you using the value of a variable before that value has been
   set?
 
-## Exercise 1a
+## Exercise 1.1
 
 Check the convergence of your trajectory with respect to the
 time-step value. How small has the time step to be in order to get a
-trajectory converged within 1 cm after 2 minutes of simulation? Also
-monitor the energy conservation during your simulations
-(at each time step the change in kinetic energy can be
-evaluated from the velocities, the change in potential energy can be
-evaluated from the displacements).
+trajectory converged within 1 cm after 2 minutes of simulation?
 
 ## Guidelines and tips
 
-Work in progress.
+To check the convergence, 'nest' your Velocity Verlet algorithm
+inside a loop construct that, at each iteration, halves the timestep,
+calculates the final positions after 2 minutes, and checks the
+convergence of these with respect to the values obtained in the
+previous iteration.
+
+## Exercise 1.2
+
+Monitor the energy conservation during your simulations: for each
+of the above simulations, have your program print the difference
+between the total energy at the initial and finale times.
+
+## Guidelines and tips
+
+The kinetic energy of the system at a given iteration can be computed
+from the masses and the velocities as $K_k = \sum_a /frac{1}{2m_a}
+(v_k^(a,x)^2)$.
+
+(at each time step the change in kinetic energy can be
+evaluated from the velocities, the change in potential energy can be
+evaluated from the displacements).
 
 ## Exercise 2
 
@@ -445,6 +461,7 @@ The XYZ format for storing trajectories is:
 <aotm N symbol> <x> <y> <z>
 [...]
 ```
+where coordinates are given in $\AA$.
 Note that strictly speaking the lines `<time at k = ...>` would be
 comment lines in ordinary XYZ format but we will use them to store
 the value of the time at each iteration.
