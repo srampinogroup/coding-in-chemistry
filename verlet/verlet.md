@@ -86,55 +86,6 @@ back to step 1.
 
 Analogous schemes can be written for the $y$ and $z$ components.
 
-For a system of $N$ particles in 3D space interacting through
-pairwise additive Lennard-Jones potentials:
-
-$$
-V (\{\boldsymbol{r}_a\})
- = \sum_a^N \sum_{b<a}^N V_\text{LJ} (r_{ab})
- %= \sum_{a>b} V_\text{LJ} (r_{ab})
-$$
-
-where $r_{ab}$ is the distance between atoms $a$ and $b$
-
-$$
-r_{ab} = \sqrt{x_{ab}^2 + y_{ab}^2 + z_{ab}^2}
-$$
-
-with $x_{ab} = x_a - x_b$, and the Lennard-Jones potential is given by:
-
-$$
-V_\text{LJ} (r) = 4 \epsilon
-\left[
-	\left( \frac{\sigma}{r} \right)^{12}
-	- \left( \frac{\sigma}{r} \right)^{6}
-\right]
-$$
-
-In this case, the
-derivative of the pair potential with respect to each Cartesian component of the position of an atom can be written in terms of $V'$, i.e. the derivative of the Lennard-Jones potential with respect to the argument of the same function.
-For the $x$ component, for example:
-
-$$
-\frac{\partial V_\text{LJ} (r_{ab})}{\partial x_{ab}} = V_\text{LJ}'(r_{ab})
-\frac{\partial r_{ab}}{\partial x_{ab}} = \frac{x_{ab}}{r_{ab}}
-V_\text{LJ}'(r_{ab})
-$$
-
-where $V_\text{LJ}'(r)$ is easily evaluated as:
-
-$$V_\text{LJ}'(r) = 4 \epsilon
-\left[
-	- 12 \frac{\sigma^{12}}{r^{13}}
-	+  6 \frac{\sigma^{6}}{r^{7}}
-\right]
-$$
-Accordingly, the $x$ component of the force acting on the $a$-th atom to be used in step 2
-of the algorithm is:
-$$
-f^{(a,x)}_{k+1} = - \sum_{b \neq a} \frac{x_{ab}}{r_{ab}} V_\text{LJ}'(r_{ab})
-$$
-
 ## Exercise 1
 
 Write a Fortran program that implements the Velocity Verlet algorithm
@@ -398,10 +349,10 @@ If the program does not behave as expected:
 Check the convergence of your trajectory with respect to the
 time-step value. How small has the time step to be in order to get a
 trajectory converged within 1 cm after 2 minutes of simulation? Also
-monitor the energy conservation after 2 minutes as a function of the
-time step (at each time step the change in kinetic energy can be
+monitor the energy conservation during your simulations
+(at each time step the change in kinetic energy can be
 evaluated from the velocities, the change in potential energy can be
-evaluated from the displacement).
+evaluated from the displacements).
 
 ## Guidelines and tips
 
@@ -420,4 +371,52 @@ $a_0$ and $\epsilon_{\text{Ne}-\text{Ne}}$ = 0.000112991 $E_\text{h}$
 
 ## Guidelines and tips
 
-Functions
+For a system of $N$ particles in 3D space interacting through
+pairwise additive Lennard-Jones potentials:
+
+$$
+V (\{\boldsymbol{r}_a\})
+ = \sum_a^N \sum_{b<a}^N V_\text{LJ} (r_{ab})
+ %= \sum_{a>b} V_\text{LJ} (r_{ab})
+$$
+
+where $r_{ab}$ is the distance between atoms $a$ and $b$
+
+$$
+r_{ab} = \sqrt{x_{ab}^2 + y_{ab}^2 + z_{ab}^2}
+$$
+
+with $x_{ab} = x_a - x_b$, and the Lennard-Jones potential is given by:
+
+$$
+V_\text{LJ} (r) = 4 \epsilon
+\left[
+	\left( \frac{\sigma}{r} \right)^{12}
+	- \left( \frac{\sigma}{r} \right)^{6}
+\right]
+$$
+
+In this case, the
+derivative of the pair potential with respect to each Cartesian component of the position of an atom can be written in terms of $V'$, i.e. the derivative of the Lennard-Jones potential with respect to the argument of the same function.
+For the $x$ component, for example:
+
+$$
+\frac{\partial V_\text{LJ} (r_{ab})}{\partial x_{ab}} = V_\text{LJ}'(r_{ab})
+\frac{\partial r_{ab}}{\partial x_{ab}} = \frac{x_{ab}}{r_{ab}}
+V_\text{LJ}'(r_{ab})
+$$
+
+where $V_\text{LJ}'(r)$ is easily evaluated as:
+
+$$V_\text{LJ}'(r) = 4 \epsilon
+\left[
+	- 12 \frac{\sigma^{12}}{r^{13}}
+	+  6 \frac{\sigma^{6}}{r^{7}}
+\right]
+$$
+Accordingly, the $x$ component of the force acting on the $a$-th atom to be used in step 2
+of the algorithm is:
+$$
+f^{(a,x)}_{k+1} = - \sum_{b \neq a} \frac{x_{ab}}{r_{ab}} V_\text{LJ}'(r_{ab})
+$$
+
