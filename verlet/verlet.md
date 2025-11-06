@@ -562,7 +562,7 @@ The XYZ format for storing trajectories is:
 <aotm N symbol> <x> <y> <z>
 [...]
 ```
-where coordinates are given in $\AA$.
+where coordinates are given in Angstrom.
 Note that strictly speaking the lines `<time at k = ...>` would be
 comment lines in ordinary XYZ format but we will use them to store
 the value of the time at each iteration.
