@@ -367,12 +367,40 @@ between the total energy at the initial and finale times.
 ## Guidelines and tips
 
 The kinetic energy of the system at a given iteration can be computed
-from the masses and the velocities as $K_k = \sum_a /frac{1}{2m_a}
-(v_k^(a,x)^2)$.
+from the masses and the velocities as
 
-(at each time step the change in kinetic energy can be
-evaluated from the velocities, the change in potential energy can be
-evaluated from the displacements).
+$$
+T_k = \sum_a \frac{1}{2m_a}
+\left[ (v_k^{(a,x)})^2 + (v_k^{(a,y)})^2 + (v_k^{(a,z)})^2 \right]
+$$
+
+Use an external procedures to compute the kinetic energy at a given
+interation. External procedures can be 'functions' or 'subroutines'.
+We will use function for the present purpose and introduce subroutines
+later one.
+
+Example of a function:
+```
+PROGRAM main
+  IMPLICIT NONE
+  INTEGER :: i
+  REAL (KIND=wp) :: x
+  <...>
+  x = 5.0_wp
+  y = myexpfunction(i, x)
+  <...>
+END PROGRAM main
+
+FUNCTION myexpfunction(k, z)
+  REAL (KIND=wp) :: myexpfunction
+  INTEGER, INTENT(IN) :: k
+  REAL (KIND=wp) :: z
+  myexpfunction = z**k
+END FUNCTION myexpfunction
+```
+
+
+
 
 ## Exercise 2
 
