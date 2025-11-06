@@ -356,7 +356,7 @@ evaluated from the displacements).
 
 ## Guidelines and tips
 
-Subroutines
+Work in progress.
 
 ## Exercise 2
 
@@ -368,6 +368,9 @@ Use the following parameters: $\sigma_{\text{Ne}-\text{Ne}}$ = 5.2186
 $a_0$ and $\epsilon_{\text{Ne}-\text{Ne}}$ = 0.000112991 $E_\text{h}$
 (taken from [JCP 138, 134502
 (2013)](https://doi.org/10.1063/1.4796144)).
+
+Write the trajectory in XYZ format for visualizaton with
+[VMD](https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD).
 
 ## Guidelines and tips
 
@@ -420,3 +423,22 @@ $$
 f^{(a,x)}_{k+1} = - \sum_{b \neq a} \frac{x_{ab}}{r_{ab}} V_\text{LJ}'(r_{ab})
 $$
 
+The XYZ format is:
+```
+<number of atoms>
+<time at k = 1>
+<atom 1 symbol> <x> <y> <z>
+<aotm 2 symbol> <x> <y> <z>
+[...]
+<aotm N symbol> <x> <y> <z>
+<number of atoms>
+<time at k = 2>
+<atom 1 symbol> <x> <y> <z>
+<aotm 2 symbol> <x> <y> <z>
+[...]
+<aotm N symbol> <x> <y> <z>
+[...]
+```
+Note that strictly speaking the lines `<time at k = ...>` would be
+comment lines in ordinary XYZ format but we will use them to store
+the value of the time at each iteration.
