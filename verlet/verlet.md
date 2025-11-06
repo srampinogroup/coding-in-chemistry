@@ -414,7 +414,7 @@ for a system of $N$ Neon ($m_\text{Ne}$ = 20.1797 amu) atoms in 3D space
 interacting through pairwise additive Lennard-Jones potentials.
 
 Use the following parameters: $\sigma_{\text{Ne}-\text{Ne}}$ = 5.2186
-bohrn and $\epsilon_{\text{Ne}-\text{Ne}}$ = 0.000112991 Hartree
+$a_0$ and $\epsilon_{\text{Ne}-\text{Ne}}$ = 0.000112991 Hartree
 (taken from [JCP 138, 134502
 (2013)](https://doi.org/10.1063/1.4796144)).
 
