@@ -15,6 +15,7 @@ Authors: Sergio Rampino, Erwan Privat.
 - [gfortran](https://fortran-lang.org/learn/os_setup/install_gfortran/)
   compiler
 - [gnuplot](http://gnuplot.info/download.html)
+- [VMD](https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD)
 
 ## Contents
 
