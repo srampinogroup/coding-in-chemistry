@@ -423,7 +423,13 @@ $$
 f^{(a,x)}_{k+1} = - \sum_{b \neq a} \frac{x_{ab}}{r_{ab}} V_\text{LJ}'(r_{ab})
 $$
 
-The XYZ format is:
+### Array syntax
+
+### External procedures
+
+### XYZ format
+
+The XYZ format for storing trajectories is:
 ```
 <number of atoms>
 <time at k = 1>
