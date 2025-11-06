@@ -486,6 +486,64 @@ $$
 
 ### External procedures
 
+Use a subroutine to evaluate the forces acting on a given particle. Subroutines and functions typically go into a 'module' in a separate file, which is imported in the main program. The following code illustrates how this works. Note that we are also putting into a module (`kinds` in file `finds.f95`) the definition of the parateters relating to machine precision (`sp` for single, `db` for double). We then opt to use a working precision `wp` equal to double precision when importing the module (see `USE` statements in the code examples below).
+
+File `kinds.f95`:
+```
+MODULE kinds                                                          
+  IMPLICIT NONE                                                       
+  INTEGER, PARAMETER, PUBLIC :: sp = SELECTED_REAL_KIND (p=6, r=37)   
+  INTEGER, PARAMETER, PUBLIC :: dp = SELECTED_REAL_KIND (p=13, r=300) 
+END MODULE kinds 
+```
+
+File `module.f95`:
+```
+MODULE mymodule                                                       
+  USE kinds, ONLY: wp => dp                                           
+  IMPLICIT NONE                                                       
+                                                                      
+  PUBLIC :: myexpsubroutine                                           
+                                                                      
+  CONTAINS                                                            
+                                                                      
+  SUBROUTINE myexpsubroutine(x, i, y)                                 
+    INTEGER, INTENT(IN) :: i                                          
+    REAL (KIND=wp), DIMENSION(:), INTENT(IN) :: x                     
+    REAL (KIND=wp), DIMENSION(:), INTENT(OUT) :: y                    
+    y = x**i                                                          
+  END SUBROUTINE myexpsubroutine                                      
+                                                                      
+END MODULE mymodule
+```
+
+File `main.f95`:
+```
+PROGRAM main                                                          
+  USE kinds, ONLY: wp => dp                                           
+  USE mymodule                                                        
+  IMPLICIT NONE                                                       
+  INTEGER :: i                                                        
+  REAL (KIND=wp), DIMENSION(:), ALLOCATABLE :: x, y                   
+  i = 3                                                               
+  ALLOCATE ( x(3), y(3) )                                             
+  x = (/ 1.0, 2.0, 5.0 /)                                             
+  CALL myexpsubroutine(x, i, y)                                       
+  PRINT *, y                                                          
+  DEALLOCATE (x, y)                                                   
+END PROGRAM main
+```
+
+To compile, execute:
+```
+gfortran -o myprogram kinds.f95 module.f95 main.f95
+```
+
+And to execute:
+```
+./myprogram
+```
+
 ### XYZ format
 
 The XYZ format for storing trajectories is:
