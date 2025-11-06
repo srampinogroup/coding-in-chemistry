@@ -88,6 +88,7 @@ Analogous schemes can be written for the $y$ and $z$ components.
 
 For a system of $N$ particles in 3D space interacting through
 pairwise additive Lennard-Jones potentials:
+
 $$
 V (\{\boldsymbol{r}_a\})
  = \sum_a^N \sum_{b<a}^N V_\text{LJ} (r_{ab})
