@@ -4,6 +4,9 @@ University of Padua).
 
 Authors: Sergio Rampino, Erwan Privat.
 
+*Note that this is a working-in-progress repository: draft, messy, unfinished sections may appear from time to time. Final polishing is planned for late December 2025.*
+
+
 ## Setup:
 
 - bash (or bash-like) shell
