@@ -7,22 +7,7 @@ computational problems
 external procedures
 3. Learn how to use array syntax, modules, functions, and subroutines
 
-
-## Exercise 2
-
-Write a Fortran program that implements the Velocity Verlet algorithm
-for a system of $N$ Neon ($m_\text{Ne}$ = 20.1797 amu) atoms in 3D space
-interacting through pairwise additive Lennard-Jones potentials.
-
-Use the following parameters: $\sigma_{\text{Ne}-\text{Ne}}$ = 5.2186
-$a_0$ and $\epsilon_{\text{Ne}-\text{Ne}}$ = 0.000112991 $E_\text{h}$
-(taken from [JCP 138, 134502
-(2013)](https://doi.org/10.1063/1.4796144)).
-
-Write the trajectory in XYZ format for visualizaton with
-[VMD](https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD).
-
-## Guidelines and tips
+## Systems of $N$ particles interactive through pairwise additive Lennard-Jones potentials
 
 For a system of $N$ particles in 3D space interacting through
 pairwise additive Lennard-Jones potentials:
@@ -68,10 +53,44 @@ $$V_\text{LJ}'(r) = 4 \epsilon
 \right]
 $$
 Accordingly, the $x$ component of the force acting on the $a$-th atom to be used in step 2
-of the algorithm is:
+of the algorithm (see Hands-on Session 1.) is:
 $$
 f^{(a,x)}_{k+1} = - \sum_{b \neq a} \frac{x_{ab}}{r_{ab}} V_\text{LJ}'(r_{ab})
 $$
+
+
+## Exercise 2
+
+Write a Fortran program that implements the Velocity Verlet algorithm
+for a system of $N$ Neon ($m_\text{Ne}$ = 20.1797 amu) atoms in 3D space
+interacting through pairwise additive Lennard-Jones potentials.
+
+Use the following parameters: $\sigma_{\text{Ne}-\text{Ne}}$ = 5.2186
+$a_0$ and $\epsilon_{\text{Ne}-\text{Ne}}$ = 0.000112991 $E_\text{h}$
+(taken from [JCP 138, 134502
+(2013)](https://doi.org/10.1063/1.4796144)).
+
+Read input values from a file structured as follows (with distnces in Bohr and energies in Hartree):
+
+```
+600 0.2                                     ! nk, tau
+5.2186, 0.000112991                         ! sigma, epsilon
+2                                           ! n, number of atoms
+20.1797 0.0  0.0  4.0  0.0  0.0  0.0        ! m, x, y, z, vx, vy, vz
+20.1797 0.0  0.0  0.0  0.0  0.0  0.0        ! m, x, y, z, vx, vy, vz 
+```
+
+Write the trajectory in XYZ format for visualizaton with
+[VMD](https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD).
+
+## Guidelines and tips
+
+### Coding and variables
+
+Use an allocatable two-index array `x(:,:)` for storing the values of the coordinates of the particles at the current iteration.
+Use the first index for the particle id, and the second index ranging from 1 to 3 for $x$, $y$, and $z$.
+Do the same for the velocities `v(:,:)`, the forces `f(:,:)`, and the forces at the next iteration (see algorithm description in Hands-on Session 1.) `fnext(:,:)`.
+In so doing, you can benefit from syntax array (see below) for avoiding code replication due to the fact that the equation for $x$, $y$, and $z$ are exactly the same.
 
 ### Array syntax
 
@@ -82,21 +101,26 @@ PROGRAM arrays
   IMPLICIT NONE                                                       
   INTEGER, DIMENSION(3) :: vec                                        
   INTEGER, DIMENSION(3,3) :: mat                                      
-                                                                      
+
+  ! array construction                                                                    
   vec = (/ 1, 2, 3 /)                                                 
                                                                       
   mat(1,:) = (/ 1, 2, 3 /)                                            
   mat(2,:) = (/ 4, 5, 6 /)                                            
   mat(3,:) = (/ 7, 8, 9 /)                                            
-                                                                      
+
+  ! print all elements of the array                                                            
   PRINT *, vec                                                        
   PRINT *, "---"                                                      
-                                                                      
+
+  ! array slicing                                                                    
   PRINT *, mat(3,2:3)                                                 
-  PRINT *, "---"                                                      
-                                                                      
+  PRINT *, "---"
+                                                     
+  ! array multiplication with scalar                                                                    
   vec = vec * 2                                                       
-                                                                      
+
+  ! element-wise operation without explicit iteration (loop) constructs                                                                    
   mat(:,1) = mat(:,1) + vec(:)                                        
                                                                       
   PRINT *, mat(1,:)                                                   
@@ -119,7 +143,7 @@ The output will be:
 
 ### External procedures
 
-Use a subroutine to evaluate the forces acting on a given particle. Subroutines and functions typically go into a 'module' in a separate file, which is imported in the main program. The following code illustrates how this works. Note that we are also putting into a module (named `kinds`, in file `kinds.f95`) the definition of the parateters relating to machine precision (`sp` for single, `db` for double). We then opt to use a working precision `wp` equal to double precision when importing the module (see `USE` statements in the code examples below).
+Use a subroutine to evaluate the forces acting on a given particle. Subroutines and functions go into a 'module' in a separate file, which is imported in the main program. The following code illustrates how this works. Note that we are also putting into a module (named `kinds`, in file `kinds.f95`) the definition of the parateters relating to machine precision (`sp` for single, `db` for double). We then opt to use a working precision `wp` equal to double precision when importing the module (see `USE` statements in the code examples below).
 
 File `kinds.f95`:
 ```

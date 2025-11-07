@@ -353,9 +353,8 @@ trajectory converged within 1 cm after 2 minutes of simulation?
 ## Guidelines and tips
 
 To check the convergence, 'nest' your Velocity Verlet algorithm
-inside a loop construct that, at each iteration, doubles the total
-number of iterations (thus halving the timestep),
-calculates the final positions after 2 minutes, and checks the
+inside a loop construct that, at each iteration, halves the timestep,
+calculates the final positions after 2 minutes of simulation, and checks the
 convergence of these with respect to the values obtained in the
 previous iteration.
 
@@ -363,7 +362,7 @@ previous iteration.
 
 Monitor the energy conservation during your simulations: for each
 of the above simulations, have your program print the difference
-between the total (kinetic plus potential) energy at the initial and finale times.
+between the total (kinetic plus potential) energy at the initial and final times.
 
 ## Guidelines and tips
 
