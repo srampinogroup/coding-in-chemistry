@@ -5,7 +5,7 @@
 2. Write and compile a basic Fortran program (one single source file,
 no external procedures)
 3. Familiarize with basic scientific programming: variable
-declaration, assignement, basic I/O, interaction constructs
+declaration, assignement, basic I/O, interaction constructs, alternative constructs
 
 # Classical trajectories via the Velocity Verlet algorithm
 
@@ -370,7 +370,7 @@ The kinetic energy of the system at a given iteration can be computed
 from the masses and the velocities as
 
 $$
-T_k = \sum_a \frac{1}{2m_a}
+T_k = \sum_a \frac{m_a}{2}
 \left[ (v_k^{(a,x)})^2 + (v_k^{(a,y)})^2 + (v_k^{(a,z)})^2 \right]
 $$
 
