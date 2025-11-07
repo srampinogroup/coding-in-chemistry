@@ -353,7 +353,8 @@ trajectory converged within 1 cm after 2 minutes of simulation?
 ## Guidelines and tips
 
 To check the convergence, 'nest' your Velocity Verlet algorithm
-inside a loop construct that, at each iteration, halves the timestep,
+inside a loop construct that, at each iteration, doubles the total
+number of iterations (thus halving the timestep),
 calculates the final positions after 2 minutes, and checks the
 convergence of these with respect to the values obtained in the
 previous iteration.

@@ -35,6 +35,8 @@ Command | Description
 `cp <file> <new_file>` | create a duplicate file named `<new_file>` of the file `<file>`
 `cp -r <dir> <new_dir>` | create a duplicate file named `<new_file>` of the file `<file>`
 `mv <old_file> <new_file>` | move `<old_file>` to `<new_file>` (equivalent to renaming the file)
+`mv <old_file> <dir>` | move `<old_file>` inside `<dir>` keeping its
+original name
 `rm <file>` | removes file `<file>`, **this is definitive**
 `rm -r ./'<dir>'` | remove directory `<dir>` and all files contained in it, **this is definitive**
 
