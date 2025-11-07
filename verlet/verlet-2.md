@@ -73,6 +73,13 @@ $$
 f^{(a,x)}_{k+1} = - \sum_{b \neq a} \frac{x_{ab}}{r_{ab}} V_\text{LJ}'(r_{ab})
 $$
 
+### Coding and variables
+
+Use an allocatable two-index array `x(:,:)` for storing the values of the coordinates of the particles constituting your system at the current iteration.
+Use the first index for the particle id, and the second index ranging from 1 to 3 for $x$, $y$, and $z$.
+Do the same for the velocities `v(:,:)`, the forces `f(:,:)`, and the forces at the next iteration (see algorithm description in Hands-on Session 1.) `fnext(:,:)`.
+In so doing, you can benefit from syntax array (see below) for avoiding code replication due to the fact that the equation for $x$, $y$, and $z$ are exactly the same.
+
 ### Array syntax
 
 The following code example may be useful to understand and exploit array syntax in Fortran.
