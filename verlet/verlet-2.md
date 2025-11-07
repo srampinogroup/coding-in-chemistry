@@ -19,6 +19,16 @@ $a_0$ and $\epsilon_{\text{Ne}-\text{Ne}}$ = 0.000112991 $E_\text{h}$
 (taken from [JCP 138, 134502
 (2013)](https://doi.org/10.1063/1.4796144)).
 
+Read input values from a file structured as follows (with distnces in Bohr and energies in Hartree):
+
+```
+600 0.2                                     ! nk, tau
+5.2186, 0.000112991                         ! sigma, epsilon
+2                                           ! n, number of atoms
+20.1797 0.0  0.0  4.0  0.0  0.0  0.0        ! m, x, y, z, vx, vy, vz
+20.1797 0.0  0.0  0.0  0.0  0.0  0.0        ! m, x, y, z, vx, vy, vz 
+```
+
 Write the trajectory in XYZ format for visualizaton with
 [VMD](https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD).
 
