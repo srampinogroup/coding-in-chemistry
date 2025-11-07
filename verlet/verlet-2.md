@@ -53,7 +53,7 @@ $$V_\text{LJ}'(r) = 4 \epsilon
 \right]
 $$
 Accordingly, the $x$ component of the force acting on the $a$-th atom to be used in step 2
-of the algorithm is:
+of the algorithm (see Hands-on Session 1.) is:
 $$
 f^{(a,x)}_{k+1} = - \sum_{b \neq a} \frac{x_{ab}}{r_{ab}} V_\text{LJ}'(r_{ab})
 $$
