@@ -357,3 +357,60 @@ inside a loop construct that, at each iteration, halves the timestep,
 calculates the final positions after 2 minutes, and checks the
 convergence of these with respect to the values obtained in the
 previous iteration.
+
+## Exercise 1.2
+
+Monitor the energy conservation during your simulations: for each
+of the above simulations, have your program print the difference
+between the total energy at the initial and finale times.
+
+## Guidelines and tips
+
+The kinetic energy of the system at a given iteration can be computed
+from the masses and the velocities as
+
+$$
+T_k = \sum_a \frac{m_a}{2}
+\left[ (v_k^{(a,x)})^2 + (v_k^{(a,y)})^2 + (v_k^{(a,z)})^2 \right]
+$$
+
+Use an external procedures to compute the kinetic energy at a given
+interation. External procedures can be 'functions' or 'subroutines'.
+We will use function for the present purpose and introduce subroutines
+in Hands-on Session 2.
+
+We will soon see that external procedures are typically stored together
+in separate files from the main program. However, for the moment we
+will define them in the same file, just below the `END PROGRAM` statement
+of the main program as in the following example:
+
+```
+PROGRAM main                                                          
+  IMPLICIT NONE                                                       
+  INTEGER, PARAMETER :: wp = SELECTED_REAL_KIND (p=13, r=300)         
+  INTEGER :: i                                                        
+  REAL (KIND=wp) :: x, y, myexpfunction                               
+  i = 3                                                               
+  x = 5.0_wp                                                          
+  y = myexpfunction(i, x)                                             
+  PRINT *, y                                                          
+END PROGRAM main                                                      
+
+FUNCTION myexpfunction(k, z)                                          
+  INTEGER, PARAMETER :: wp = SELECTED_REAL_KIND (p=13, r=300)         
+  REAL (KIND=wp) :: myexpfunction                                     
+  INTEGER, INTENT(IN) :: k                                            
+  REAL (KIND=wp) :: z                                                 
+  myexpfunction = z**k                                                
+END FUNCTION myexpfunction 
+```
+The change in potential energy associated to one iteration
+can be approximated as follows:
+
+$$
+V_{k+1} - V_k = \sum_a \left[
+  f_k^{(a,x)} (x_{k+1}^{(a)} - x_{k}^{(a)}) +
+  f_k^{(a,y)} (y_{k+1}^{(a)} - y_{k}^{(a)}) +
+  f_k^{(a,z)} (z_{k+1}^{(a)} - z_{k}^{(a)})
+\right]
+$$
