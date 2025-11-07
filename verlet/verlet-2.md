@@ -87,7 +87,7 @@ Write the trajectory in XYZ format for visualizaton with
 
 ### Coding and variables
 
-Use an allocatable two-index array `x(:,:)` for storing the values of the coordinates of the particles constituting your system at the current iteration.
+Use an allocatable two-index array `x(:,:)` for storing the values of the coordinates of the particles at the current iteration.
 Use the first index for the particle id, and the second index ranging from 1 to 3 for $x$, $y$, and $z$.
 Do the same for the velocities `v(:,:)`, the forces `f(:,:)`, and the forces at the next iteration (see algorithm description in Hands-on Session 1.) `fnext(:,:)`.
 In so doing, you can benefit from syntax array (see below) for avoiding code replication due to the fact that the equation for $x$, $y$, and $z$ are exactly the same.
@@ -101,21 +101,26 @@ PROGRAM arrays
   IMPLICIT NONE                                                       
   INTEGER, DIMENSION(3) :: vec                                        
   INTEGER, DIMENSION(3,3) :: mat                                      
-                                                                      
+
+  ! array construction                                                                    
   vec = (/ 1, 2, 3 /)                                                 
                                                                       
   mat(1,:) = (/ 1, 2, 3 /)                                            
   mat(2,:) = (/ 4, 5, 6 /)                                            
   mat(3,:) = (/ 7, 8, 9 /)                                            
-                                                                      
+
+  ! print all elements of the array                                                            
   PRINT *, vec                                                        
   PRINT *, "---"                                                      
-                                                                      
+
+  ! array slicing                                                                    
   PRINT *, mat(3,2:3)                                                 
-  PRINT *, "---"                                                      
-                                                                      
+  PRINT *, "---"
+                                                     
+  ! array multiplication with scalar                                                                    
   vec = vec * 2                                                       
-                                                                      
+
+  ! element-wise operation without explicit iteration (loop) constructs                                                                    
   mat(:,1) = mat(:,1) + vec(:)                                        
                                                                       
   PRINT *, mat(1,:)                                                   
@@ -138,7 +143,7 @@ The output will be:
 
 ### External procedures
 
-Use a subroutine to evaluate the forces acting on a given particle. Subroutines and functions typically go into a 'module' in a separate file, which is imported in the main program. The following code illustrates how this works. Note that we are also putting into a module (named `kinds`, in file `kinds.f95`) the definition of the parateters relating to machine precision (`sp` for single, `db` for double). We then opt to use a working precision `wp` equal to double precision when importing the module (see `USE` statements in the code examples below).
+Use a subroutine to evaluate the forces acting on a given particle. Subroutines and functions go into a 'module' in a separate file, which is imported in the main program. The following code illustrates how this works. Note that we are also putting into a module (named `kinds`, in file `kinds.f95`) the definition of the parateters relating to machine precision (`sp` for single, `db` for double). We then opt to use a working precision `wp` equal to double precision when importing the module (see `USE` statements in the code examples below).
 
 File `kinds.f95`:
 ```
