@@ -362,9 +362,11 @@ previous iteration.
 
 Monitor the energy conservation during your simulations: for each
 of the above simulations, have your program print the difference
-between the total energy at the initial and finale times.
+between the total (kinetic plus potential) energy at the initial and finale times.
 
 ## Guidelines and tips
+
+### Kinetic energy
 
 The kinetic energy of the system at a given iteration can be computed
 from the masses and the velocities as
@@ -374,15 +376,17 @@ T_k = \sum_a \frac{m_a}{2}
 \left[ (v_k^{(a,x)})^2 + (v_k^{(a,y)})^2 + (v_k^{(a,z)})^2 \right]
 $$
 
-Use an external procedures to compute the kinetic energy at a given
+Use an external procedure to compute the kinetic energy at a given
 interation. External procedures can be 'functions' or 'subroutines'.
-We will use function for the present purpose and introduce subroutines
+We will use a function for the present purpose and introduce subroutines
 in Hands-on Session 2.
 
-We will soon see that external procedures are typically stored together
-in separate files from the main program. However, for the moment we
-will define them in the same file, just below the `END PROGRAM` statement
-of the main program as in the following example:
+We will soon see that it is good practice to store external procedures
+in so-called 'modules' in separate files from the main program.
+However, for the moment we
+will define the function in the same file as the main program, just
+below the `END PROGRAM` statement of the main program as in the
+following example:
 
 ```
 PROGRAM main                                                          
@@ -404,6 +408,9 @@ FUNCTION myexpfunction(k, z)
   myexpfunction = z**k                                                
 END FUNCTION myexpfunction 
 ```
+
+### Potential energy
+
 The change in potential energy associated to one iteration
 can be approximated as follows:
 
