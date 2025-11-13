@@ -89,7 +89,7 @@ Analogous schemes can be written for the $y$ and $z$ components.
 ## Exercise 1
 
 Write a Fortran program that implements the Velocity Verlet algorithm
-with $k$ ranging from 1 to 10 and $\tau$ = 0.2 s for one
+with $k$ ranging from 1 to 600 and $\tau$ = 0.2 s for one
 particle of mass 1 kg in 3D space subject to a constant force
 expressed by components $f^{(a,x)}$ = 0 kg m s<sup>-2</sup>,
 $f^{(a,y)}$ = 0.1 kg m s<sup>-2</sup>,
@@ -99,6 +99,16 @@ Use the following initial conditions: still particle in the origin of
 the reference frame.
 Make the program print the values of $x$, $y$, and $z$ of the
 particle at each time iteration.
+
+Verify your results against the analytical solutions:
+
+$$
+v^{a,y}_{k} = v^{a,y}_0 + \frac{f^{a,y}_k}{m_a} t_k
+$$
+
+$$
+y^{a}_k = y^{a}_0 + v^{a,y}_0 + \frac{1}{2} \frac{f^{a,y}_k}{m_a} t_k^2
+$$
 
 ## Guidelines and tips
 
@@ -345,20 +355,6 @@ If the program does not behave as expected:
   set?
 
 ## Exercise 1.1
-
-Check the convergence of your trajectory with respect to the
-time-step value. How small has the time step to be in order to get a
-trajectory converged within 1 cm after 2 minutes of simulation?
-
-## Guidelines and tips
-
-To check the convergence, 'nest' your Velocity Verlet algorithm
-inside a loop construct that, at each iteration, halves the timestep,
-calculates the final positions after 2 minutes of simulation, and checks the
-convergence of these with respect to the values obtained in the
-previous iteration.
-
-## Exercise 1.2
 
 Monitor the energy conservation during your simulations: for each
 of the above simulations, have your program print the difference

@@ -223,3 +223,18 @@ where coordinates are given in Angstrom.
 Note that strictly speaking the lines `<time at k = ...>` would be
 comment lines in ordinary XYZ format but we will use them to store
 the value of the time at each iteration.
+
+## Exercise 2.1
+
+Check the convergence of your trajectory with respect to the
+time-step value. How small has the time step to be in order to get a
+trajectory converged within 1 cm after 2 minutes of simulation?
+
+## Guidelines and tips
+
+To check the convergence, 'nest' your Velocity Verlet algorithm
+inside a loop construct that, at each iteration, halves the timestep,
+calculates the final positions after 2 minutes of simulation, and checks the
+convergence of these with respect to the values obtained in the
+previous iteration.
+
