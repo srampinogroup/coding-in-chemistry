@@ -103,11 +103,11 @@ particle at each time iteration.
 Verify your results against the analytical solutions:
 
 $$
-v^{y}_{k} = v^{y}_0 + \frac{f^{y}_k}{m} t_k
+v^{(y)}_{k} = v^{(y)}_0 + \frac{f^{(y)}_k}{m} t_k
 $$
 
 $$
-y_k = y_0 + v^{y}_0 + \frac{1}{2} \frac{f^{y}_k}{m} t_k^2
+y_k = y_0 + v^{(y)}_0 + \frac{1}{2} \frac{f^{(y)}_k}{m} t_k^2
 $$
 
 ## Guidelines and tips
