@@ -91,9 +91,9 @@ Analogous schemes can be written for the $y$ and $z$ components.
 Write a Fortran program that implements the Velocity Verlet algorithm
 with $k$ ranging from 1 to 600 and $\tau$ = 0.2 s for one
 particle of mass 1 kg in 3D space subject to a constant force
-expressed by components $f^{(a,x)}$ = 0 kg m s<sup>-2</sup>,
-$f^{(a,y)}$ = 0.1 kg m s<sup>-2</sup>,
-$f^{(a,z)}$ = 0 kg m s<sup>-2</sup>.
+expressed by components $f^{(x)}$ = 0 kg m s<sup>-2</sup>,
+$f^{(y)}$ = 0.1 kg m s<sup>-2</sup>,
+$f^{(z)}$ = 0 kg m s<sup>-2</sup>.
 
 Use the following initial conditions: still particle in the origin of
 the reference frame.
@@ -103,11 +103,11 @@ particle at each time iteration.
 Verify your results against the analytical solutions:
 
 $$
-v^{a,y}_{k} = v^{a,y}_0 + \frac{f^{a,y}_k}{m_a} t_k
+v^{y}_{k} = v^{y}_0 + \frac{f^{y}_k}{m} t_k
 $$
 
 $$
-y^{a}_k = y^{a}_0 + v^{a,y}_0 + \frac{1}{2} \frac{f^{a,y}_k}{m_a} t_k^2
+y_k = y_0 + v^{y}_0 + \frac{1}{2} \frac{f^{y}_k}{m} t_k^2
 $$
 
 ## Guidelines and tips
