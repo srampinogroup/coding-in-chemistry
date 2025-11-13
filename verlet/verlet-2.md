@@ -208,15 +208,15 @@ The XYZ format for storing trajectories is:
 <number of atoms>
 <time at k = 1>
 <atom 1 symbol> <x> <y> <z>
-<aotm 2 symbol> <x> <y> <z>
+<atom 2 symbol> <x> <y> <z>
 [...]
-<aotm N symbol> <x> <y> <z>
+<atom N symbol> <x> <y> <z>
 <number of atoms>
 <time at k = 2>
 <atom 1 symbol> <x> <y> <z>
-<aotm 2 symbol> <x> <y> <z>
+<atom 2 symbol> <x> <y> <z>
 [...]
-<aotm N symbol> <x> <y> <z>
+<atom N symbol> <x> <y> <z>
 [...]
 ```
 where coordinates are given in Angstrom.
