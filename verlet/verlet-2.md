@@ -7,7 +7,7 @@ computational problems
 external procedures
 3. Learn how to use array syntax, modules, functions, and subroutines
 
-## Systems of $N$ particles interactive through pairwise additive Lennard-Jones potentials
+## System of $N$ particles interacting through pairwise additive Lennard-Jones potentials
 
 For a system of $N$ particles in 3D space interacting through
 pairwise additive Lennard-Jones potentials:
@@ -70,7 +70,7 @@ $a_0$ and $\epsilon_{\text{Ne}-\text{Ne}}$ = 0.000112991 $E_\text{h}$
 (taken from [JCP 138, 134502
 (2013)](https://doi.org/10.1063/1.4796144)).
 
-Read input values from a file structured as follows (with distnces in Bohr and energies in Hartree):
+Read input values from a file structured as follows (with distnaces in Bohr and energies in Hartree):
 
 ```
 6000 1.0                                     ! nk, tau
