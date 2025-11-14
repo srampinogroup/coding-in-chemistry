@@ -73,10 +73,10 @@ $a_0$ and $\epsilon_{\text{Ne}-\text{Ne}}$ = 0.000112991 $E_\text{h}$
 Read input values from a file structured as follows (with distnces in Bohr and energies in Hartree):
 
 ```
-600 0.2                                     ! nk, tau
+6000 1.0                                     ! nk, tau
 5.2186, 0.000112991                         ! sigma, epsilon
 2                                           ! n, number of atoms
-20.1797 0.0  0.0  4.0  0.0  0.0  0.0        ! m, x, y, z, vx, vy, vz
+20.1797 0.0  0.0  8.0  0.0  0.0  0.0        ! m, x, y, z, vx, vy, vz
 20.1797 0.0  0.0  0.0  0.0  0.0  0.0        ! m, x, y, z, vx, vy, vz 
 ```
 
@@ -226,15 +226,17 @@ the value of the time at each iteration.
 
 ## Exercise 2.1
 
+WORK IN PROGRESS
+
 Check the convergence of your trajectory with respect to the
 time-step value. How small has the time step to be in order to get a
-trajectory converged within 1 cm after 2 minutes of simulation?
+trajectory converged within [...] after [...] of simulation?
 
 ## Guidelines and tips
 
 To check the convergence, 'nest' your Velocity Verlet algorithm
 inside a loop construct that, at each iteration, halves the timestep,
-calculates the final positions after 2 minutes of simulation, and checks the
+calculates the final positions after [...] of simulation, and checks the
 convergence of these with respect to the values obtained in the
 previous iteration.
 
