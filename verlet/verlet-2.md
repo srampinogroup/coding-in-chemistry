@@ -73,8 +73,8 @@ $a_0$ and $\epsilon_{\text{Ne}-\text{Ne}}$ = 0.000112991 $E_\text{h}$
 Read input values from a file structured as follows (with distances in Bohr and energies in Hartree):
 
 ```
-6000 1.0                                     ! nk, tau
-5.2186, 0.000112991                         ! sigma, epsilon
+6000 1.0                                    ! nk, tau
+5.2186 0.000112991                          ! sigma, epsilon
 2                                           ! n, number of atoms
 20.1797 0.0  0.0  8.0  0.0  0.0  0.0        ! m, x, y, z, vx, vy, vz
 20.1797 0.0  0.0  0.0  0.0  0.0  0.0        ! m, x, y, z, vx, vy, vz 
