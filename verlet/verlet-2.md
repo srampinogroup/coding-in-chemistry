@@ -74,7 +74,7 @@ Read input values from a file structured as follows (with distnces in Bohr and e
 
 ```
 600 0.2                                     ! nk, tau
-5.2186, 0.000112991                         ! sigma, epsilon
+5.2186 0.000112991                         ! sigma, epsilon
 2                                           ! n, number of atoms
 20.1797 0.0  0.0  4.0  0.0  0.0  0.0        ! m, x, y, z, vx, vy, vz
 20.1797 0.0  0.0  0.0  0.0  0.0  0.0        ! m, x, y, z, vx, vy, vz 
