@@ -7,7 +7,7 @@ computational problems
 external procedures
 3. Learn how to use array syntax, modules, functions, and subroutines
 
-## Systems of $N$ particles interactive through pairwise additive Lennard-Jones potentials
+## System of $N$ particles interacting through pairwise additive Lennard-Jones potentials
 
 For a system of $N$ particles in 3D space interacting through
 pairwise additive Lennard-Jones potentials:
@@ -70,13 +70,13 @@ $a_0$ and $\epsilon_{\text{Ne}-\text{Ne}}$ = 0.000112991 $E_\text{h}$
 (taken from [JCP 138, 134502
 (2013)](https://doi.org/10.1063/1.4796144)).
 
-Read input values from a file structured as follows (with distnces in Bohr and energies in Hartree):
+Read input values from a file structured as follows (with distances in Bohr and energies in Hartree):
 
 ```
-600 0.2                                     ! nk, tau
-5.2186 0.000112991                         ! sigma, epsilon
+6000 1.0                                    ! nk, tau
+5.2186 0.000112991                          ! sigma, epsilon
 2                                           ! n, number of atoms
-20.1797 0.0  0.0  4.0  0.0  0.0  0.0        ! m, x, y, z, vx, vy, vz
+20.1797 0.0  0.0  8.0  0.0  0.0  0.0        ! m, x, y, z, vx, vy, vz
 20.1797 0.0  0.0  0.0  0.0  0.0  0.0        ! m, x, y, z, vx, vy, vz 
 ```
 
@@ -208,18 +208,38 @@ The XYZ format for storing trajectories is:
 <number of atoms>
 <time at k = 1>
 <atom 1 symbol> <x> <y> <z>
-<aotm 2 symbol> <x> <y> <z>
+<atom 2 symbol> <x> <y> <z>
 [...]
-<aotm N symbol> <x> <y> <z>
+<atom N symbol> <x> <y> <z>
 <number of atoms>
 <time at k = 2>
 <atom 1 symbol> <x> <y> <z>
-<aotm 2 symbol> <x> <y> <z>
+<atom 2 symbol> <x> <y> <z>
 [...]
-<aotm N symbol> <x> <y> <z>
+<atom N symbol> <x> <y> <z>
 [...]
 ```
 where coordinates are given in Angstrom.
 Note that strictly speaking the lines `<time at k = ...>` would be
 comment lines in ordinary XYZ format but we will use them to store
 the value of the time at each iteration.
+
+## Exercise 2.1
+
+Monitor the energy conservation during the evolution of your trajectory by printing, every 100 iterations, the value ot the total energy (use the formula in `verlet-1.md` for the kinetic energy, and the analytic expression of the pairwise additive Lennard-Jones potentials for the potential energy). Also note down the final position of atom 1 along $z$ after `6000` iterations with time step `1.0`.
+
+Repeat the exercise using `600000` iterations and time step `0.01`.
+
+## Guidelines and tips
+
+To print the total energy every 100 iterations, the following `IF` construct can be used:
+```
+IF ( MOD(k,100) .EQ. 0 ) PRINT "(I7, 3F13.8)", k, ekin, epot, etot
+```
+where `k` is the iteration counter. Note that here we are now specifying the desired printing format, requesting to print an integer with 7 characters and 3 reals. Each real is printed with a total number of characters equal to 13 (including the decimal separator `.`), and 8 decimal digits.
+
+## Results
+After `6000` iterations with time step `1.0`, the final `z` of atom 1 is `8.0614` and the total energy varies from `-0.00003214` (`k=100`) to `-0.00002949` (`k=6000`).
+
+After `600000` iterations with time step `0.01`, the final `z` of atom 1 is `7.9756` and the total energy varies from `-0.00003214` (`k=100`) to `-0.00003212` (`k=600000`).
+
