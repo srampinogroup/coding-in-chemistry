@@ -226,17 +226,20 @@ the value of the time at each iteration.
 
 ## Exercise 2.1
 
-WORK IN PROGRESS
+Monitor the energy conservation during the evolution of your trajectory by printing, every 100 iterations, the value ot the total energy (use the formula in `verlet-1.md` for the kinetic energy, and the analytic expression of the pairwise additive Lennard-Jones potentials for the potential energy). Also note down the final position of atom 1 along $z$ after `6000` iterations with time step `1.0`.
 
-Check the convergence of your trajectory with respect to the
-time-step value. How small has the time step to be in order to get a
-trajectory converged within [...] after [...] of simulation?
+Repeat the exercise using `600000` iterations and time step `0.01`.
 
 ## Guidelines and tips
 
-To check the convergence, 'nest' your Velocity Verlet algorithm
-inside a loop construct that, at each iteration, halves the timestep,
-calculates the final positions after [...] of simulation, and checks the
-convergence of these with respect to the values obtained in the
-previous iteration.
+To print the total energy every 100 iterations, the following `IF` construct can be used:
+```
+IF ( MOD(k,100) .EQ. 0 ) PRINT "(I7, 3F13.8)", k, ekin, epot, etot
+```
+where `k` is the iteration counter. Note that here we are specifying the printing format requesting to print an integer with 7 digits and 3 reals. Each real is printed with a total number of characters equal to 13 (including the decimal separator `.`), and 8 decimal digits .
+
+## Results
+After `6000` iterations with time step `1.0`, the final `z` of atom 1 is `8.0614` and the total energy varies from `-0.00003214` (`k=100`) to `-0.00002949` (`k=6000).
+
+After `600000` iterations with time step `0.01`, the final `z` of atom 1 is `7.9756` and the total energy varies from `-0.00003214` (`k=100`) to `-0.00003212` (`k=600000).
 
