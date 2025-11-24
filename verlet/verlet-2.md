@@ -239,7 +239,13 @@ IF ( MOD(k,100) .EQ. 0 ) PRINT "(I7, 3F13.8)", k, ekin, epot, etot
 where `k` is the iteration counter. Note that here we are now specifying the desired printing format, requesting to print an integer with 7 characters and 3 reals. Each real is printed with a total number of characters equal to 13 (including the decimal separator `.`), and 8 decimal digits.
 
 ## Results
-After `6000` iterations with time step `1.0`, the final `z` of atom 1 is `8.0614` and the total energy varies from `-0.00003214` (`k=100`) to `-0.00002949` (`k=6000`).
+After `6000` iterations with time step `1.0`, the final `z` of atom 1
+is `7.9745826607` and the initial total energy (`-0.0000321414`) is
+conserved up to the fourth significant digit (displays slight
+oscillations).
 
-After `600000` iterations with time step `0.01`, the final `z` of atom 1 is `7.9756` and the total energy varies from `-0.00003214` (`k=100`) to `-0.00003212` (`k=600000`).
+After `600000` iterations with time step `0.01`, the final `z` of
+atom 1 is `7.9745833915` and the initial total energy
+(`-0.0000321414`) is
+conserved.
 
