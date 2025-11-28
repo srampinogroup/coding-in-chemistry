@@ -35,8 +35,9 @@ make
 (if you get an error try `make clean` first and then `make`).
 
 How to execute:
-                                                                      
-`../bin/cda`
+```
+../bin/cda
+```
 
 #### Additional information
 
