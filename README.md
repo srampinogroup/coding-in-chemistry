@@ -27,4 +27,4 @@ Authors: Sergio Rampino, Erwan Privat.
   of molecular systems solving Newton's equation through the Verlet
 algorithm
 - `cda/` -- Write a program for performing charge-displacement (CD)
-  analysis of electron charge redistribution
+  analysis of an electron charge redistribution
