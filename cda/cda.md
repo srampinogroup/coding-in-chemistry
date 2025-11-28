@@ -6,10 +6,12 @@
 3. Familiarize with advanced Fortran programming features: derived
 datatypes, object-based programming, operator overloading.
 
-# Charge Displacement Analysis via object-based programming
+#### Requirements
 
 Read Chapter on Charge Displacement Analysis on the Moodle page of
 the course.
+
+# Charge Displacement Analysis via object-based programming
 
 Create a Fortarn module handling `.cube` files and a Fortran program
 computing the CD function along $z$ associated with the charge
@@ -17,14 +19,16 @@ redistriubtion occuring upon bond formation of two molecular
 fragments A and B.
 
 # Guidelines and tips
-                                                                      
-1. Create the 'cube' derived datatype in `cubes.f95`
-2. Fill the procedures in `cubes.f95`
-3. Fill the proper instructions in `cda.f95`
+
+1. Download and uncompress the archive `cda-files.tgz`.
+2. Move into the `cda-files/cda/src` folder
+3. Create the 'cube' derived datatype in `cubes.f95`
+4. Fill the procedures in `cubes.f95`
+5. Fill the proper instructions in `cda.f95`
                                                                       
 How to compile:                                                       
                                                                       
-In `cda-files/cda/src`:
+In `cda-files/cda/src` type:
 ```
 make                                                                  
 ```
@@ -34,10 +38,13 @@ How to execute:
                                                                       
 `../bin/cda`
 
+#### Additional information
+
 More information on the `cube` file format:                                                      
-                                                                      
 cube file format: http://paulbourke.net/dataformats/cube/             
 see also: http://gaussian.com/cubegen/ 
+
+## Programming
 
 NB: The following instruction should be used when declaring an array as an attribute of a derived datatype
 
@@ -45,7 +52,7 @@ NB: The following instruction should be used when declaring an array as an attri
   REAL (KIND=wp), DIMENSION(:), POINTER :: array                     
 ```
                                                                       
-## I/O                                                                
+### I/O                                                                
                                                                       
 ```
   OPEN (UNIT=11, FILE=infile, STATUS="old", ACTION="read")           
@@ -57,13 +64,13 @@ NB: The following instruction should be used when declaring an array as an attri
   CLOSE (11)                                                         
 ```
 
-## Memory allocation
+### Memory allocation
                                                                       
 ```
   ALLOCATE ( mycube%zahl(mycube%natoms) )                            
 ```
                                                                       
-## Reading the array
+### Reading the array
                                                                       
 ```
     ALLOCATE ( mycube%array(mycube%nx*mycube%ny*mycube%nz) )          
