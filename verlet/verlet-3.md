@@ -26,4 +26,4 @@ eV.
 
 Save the trajectories in XYZ format (see `verlet-2.md`) and
 visualized them through a molecular visualize (e.g.,
-[VMD](https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD).
+[VMD](https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD)).
