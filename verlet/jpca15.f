@@ -1,4 +1,4 @@
-      subroutine jpca15(ser,e)
+      subroutine jpca15(ser, e, der)
 c srampino adapts to standard ABC
       implicit real * 8 (a-h,o-z)
       dimension ser(3), der(3)
