@@ -126,6 +126,7 @@ See the [Git Cheat sheet](https://git-scm.com/cheat-sheet) for further info.
 cd <repositories_folder>
 gh repo clone <your_user_name>/<your_repo_name>
 ```
+(your `<your_repo_name>` should be: first letter of your first name, full last name, dash, `cc2627` (e.g. `srampino-cc26271`)
 or if you do not have the `gh` utility:
 ```bash
 git clone https://github.com/<your_user_name>/<your_repo_name>
