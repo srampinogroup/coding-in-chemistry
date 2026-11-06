@@ -112,7 +112,7 @@ $$
 
 ## Guidelines and tips
 
-Create a `verlet` folder in your `cc2526` repository and move into
+Create a `verlet` folder in your `cc2627` repository and move into
 that directory. Create the file `verlet-1.f95` and type the following:
 
 ```
