@@ -113,7 +113,7 @@ $$
 ## Guidelines and tips
 
 Create a `verlet` folder in your `cc2526` repository and move into
-that directory. Create the file `verlet.f95` and type the following:
+that directory. Create the file `verlet-1.f95` and type the following:
 
 ```
 PROGRAM verlet
@@ -131,19 +131,19 @@ We will use two blank spaces for indenting blocks of code.
 Lines starting with `!` are comments (not part of your Fortran
 program, will be ignored by the compiler).
 
-Add `verlet.f95` to the tracked files of your repository.
+Add `verlet-1.f95` to the tracked files of your repository.
 
 To test your program, you
 need to compile it:
 
 ```
-gfortran -o verlet verlet.f95
+gfortran -o verlet-1 verlet-1.f95
 ```
 
-(this will generate the `verlet` executable) and execute it:
+(this will generate the `verlet-1` executable) and execute it:
 
 ```
-./verlet
+./verlet-1
 ```
 
 Typically, you implement a small portion of code, and soon after you
